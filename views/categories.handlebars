@@ -1,0 +1,26 @@
+<form id="addSubCategory" class="form-inline" action="/addsubcategory" method="post" enctype="multipart/form-data" style="margin-left: 5%;">
+    <label for="inputSubCategory" class="control-label">Подкатегория</label>
+   <div class="form-group">
+		<select name='category' class='form-control'>
+		{{#each category}}
+		<option>{{name}}</option>
+		{{/each}}
+		</select>
+	</div>	
+   <div class="form-group">
+	<div class="input-group">
+      <input type="login" class="form-control" id="inputSubCategory" name='subcategory' placeholder="Подкатегория" required>
+	  </div>
+  </div>
+    <div class="form-group">
+		<input class="btn" type="submit" value="Добавить"></input>
+ </div>
+</form>
+{{#each category}}
+	<ul>
+		<li>{{name}}<a href='#' data-id='{{_id}}' class='deleteCategory'> -- удалить</a></li>
+		{{#each this.subcategory}}
+			<p>{{this}}</p>
+		{{/each}}
+	</ul>
+{{/each}}
