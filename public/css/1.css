@@ -1,0 +1,19 @@
+#changeCategory {
+	position: fixed!important;
+    bottom: 0; /* Положение от нижнего края */
+    right: 0; 
+    display: block;
+    overflow: hidden;
+	width: 30%;
+	border-radius: 8px;
+}
+
+#changeSubCategory {
+	position: fixed!important;
+    bottom: 0; /* Положение от нижнего края */
+    right: 0; 
+    display: block;
+    overflow: hidden;
+	width: 30%;
+	border-radius: 8px;
+}

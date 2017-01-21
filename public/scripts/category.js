@@ -10,6 +10,9 @@ function getCategories () {
 						$("#categories").append(html);
 						addSubCategorySubmit();
 						deleteCategory();
+						changeCategory();
+						deleteSubCategory();
+						changeSubCategory()
 					}
 				});
 }
@@ -50,6 +53,66 @@ function deleteCategory() {
 				}
 			});
 		}
+	});	
+}
+
+function changeCategory() {
+	$('.changeCategory').on('click', function(){
+		var answer = confirm('Уверен?');
+		var category = $(this).data('id');
+		var oldName = $(this).data('name');
+		if (answer) {
+			$.ajax({
+				url: "../view/forms/changecategoryform.html",
+				success: function(html) {
+					$('#changeCategoryFormPlace').empty();
+					$('#changeCategoryFormPlace').append(html);
+					$('#inpuCategoryId').val(category);
+					$('#inputNewCategory').val(oldName).focus();
+					return false;
+				}
+			});
+		}
 	});
-	
+}
+
+function deleteSubCategory() {
+	$('.deleteSubCategory').on('click', function(){
+		var answer = confirm('Уверен?');
+		var subcategory = $(this).data('id');
+		var parentCategory = $(this).data('parentid');
+		if (answer) {
+			var deleteQuery = '/deletesubcategory?subcategory=' + subcategory + '&parentcategory=' + parentCategory;
+			console.log(deleteQuery);
+			$.ajax({
+				url: deleteQuery,
+				type: 'delete',
+				success: function(){
+						location.reload();
+				}
+			});
+		}
+	});	
+}
+
+function changeSubCategory() {
+	$('.changeSubCategory').on('click', function(){
+		var answer = confirm('Уверен?');
+		var subcategory = $(this).data('id');
+		var oldName = $(this).data('name');
+		var parentCategory = $(this).data('parentid');
+		if (answer) {
+			$.ajax({
+				url: "../view/forms/changesubcategoryform.html",
+				success: function(html) {
+					$('#changeCategoryFormPlace').empty();
+					$('#changeCategoryFormPlace').append(html);
+					$('#inputCategoryId').val(parentCategory);
+					$('#inputSubCategoryId').val(subcategory);
+					$('#inputNewSubCategory').val(oldName).focus();
+					return false;
+				}
+			});
+		}
+	});
 }

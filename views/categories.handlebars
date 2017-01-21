@@ -18,9 +18,14 @@
 </form>
 {{#each category}}
 	<ul>
-		<li>{{name}}<a href='#' data-id='{{_id}}' class='deleteCategory'> -- удалить</a></li>
+		<li>{{name}}<a href='#' data-id='{{_id}}' class='deleteCategory'> -- удалить</a>
+		<a href='#' data-id='{{_id}}' data-name='{{name}}' class='changeCategory'> -- изменить</a>
+		</li>
 		{{#each this.subcategory}}
-			<p>{{this}}</p>
+			<p>{{this.name}}
+			<a href='#' data-parentid='{{../_id}}' data-id='{{this.id}}' class='deleteSubCategory'> -- удалить</a>
+			<a href='#' data-parentid='{{../_id}}' data-id='{{this.id}}' data-name='{{this.name}}' class='changeSubCategory'> -- изменить</a>
+			</p>
 		{{/each}}
 	</ul>
 {{/each}}
