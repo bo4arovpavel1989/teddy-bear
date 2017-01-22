@@ -1,6 +1,6 @@
-	$(document).ready(function(){
-		getCategories();
-	});
+$(document).ready(function(){
+	getCategories();
+});
 	
 function getCategories () {	
 			$.ajax({
