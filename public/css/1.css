@@ -1,3 +1,7 @@
+.hidden {
+	display: none;
+}
+
 #changeCategory {
 	position: fixed!important;
     bottom: 0; /* Положение от нижнего края */

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	getProductAddForm();
+	getProductsList();
 });
 
 function getProductAddForm(){
@@ -10,7 +11,45 @@ function getProductAddForm(){
 			$('#addProductFormPlace').append(html);
 			getSubCategories();
 			addProductSubmit();
+			showAddProductForm();
 		}
+	});
+}
+
+function getProductsList() {
+	var query = '/getproductslist';
+		$.ajax({
+			url: query,
+			dataType: 'html',
+			success: function(html){
+				$('#productsList').empty();
+				$('#productsList').append(html);
+				deleteProduct();
+			}
+		});
+}
+
+function deleteProduct() {
+	$('.deleteProduct').on('click', function(){
+		var answer = confirm('Уверен?');
+		var product = $(this).data('id');
+		if (answer) {
+			var deleteQuery = '/deleteproduct?product=' + product;
+			console.log(deleteQuery);
+			$.ajax({
+				url: deleteQuery,
+				type: 'delete',
+				success: function(){
+						location.reload();
+				}
+			});
+		}
+	});	
+}
+
+function showAddProductForm(){
+	$('#showAddProductForm').on('click', function(){
+		$('#addProductFormPlace').toggleClass('hidden');
 	});
 }
 
