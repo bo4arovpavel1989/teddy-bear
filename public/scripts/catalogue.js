@@ -25,6 +25,7 @@ function getProductsList() {
 				$('#productsList').empty();
 				$('#productsList').append(html);
 				deleteProduct();
+				changeProduct();
 			}
 		});
 }
@@ -45,6 +46,24 @@ function deleteProduct() {
 			});
 		}
 	});	
+}
+
+function changeProduct() {
+	$('.changeProduct').on('click', function(){
+		var answer = confirm('Уверен?');
+		var product = $(this).data('id');
+		if (answer) {
+			var query = '/getchangeproductform?product=' + product;
+			$.ajax({
+				url: query,
+				type: 'get',
+				success: function(html){
+						$('#changeProductFormPlace').empty();
+						$('#changeProductFormPlace').append(html);
+				}
+			});
+		}
+	});
 }
 
 function showAddProductForm(){
