@@ -1,5 +1,28 @@
+form {
+	margin-top: 30px;
+}
 .hidden {
 	display: none;
+}
+
+.commandLink {
+	margin-left: 20px;
+	color: red;
+}
+.greenLink {
+	color: green;
+}
+.redLink {
+	color: red;
+}
+
+.brownLink {
+	color: brown;
+}
+
+#categoriesList {
+	margin-top: 30px;
+	margin-left: 50px;
 }
 
 #changeCategory {
@@ -20,4 +43,23 @@
     overflow: hidden;
 	width: 30%;
 	border-radius: 8px;
+}
+
+#productList {
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+#changeProduct {
+	width: 50%;
+}
+#changeProductImage {
+	display: inline;
+	float: right;
+	width: 30%;
+}
+
+.replenishmentFormPlace {
+	width: 30%;
+	margin-left: 50px;
 }

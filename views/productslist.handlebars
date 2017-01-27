@@ -1,3 +1,13 @@
 {{#each products}}
-<li data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a><a href='#' class='deleteProduct' data-id='{{_id}}'>--удалить</a><a href='#' class='changeProduct' data-id='{{_id}}'>--изменить</a></li>
+<li id='productList' data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a> - {{quantity}}шт. в наличии - 
+<a href='#' title='Количество' class='replenishment greenLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-plus-sign'/></a>
+<a href='#' title='Изменить' class='changeProduct brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-pencil'/></a>
+<a href='#' title='Удалить' class='deleteProduct redLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a></li>
+<div class='hidden replenishmentFormPlace'>
+<form class='form-inline' action="/replenishproduct" method="post">
+	<input type="login" class="form-control hidden" id="inputID" name='id' value='{{_id}}' required>
+    <input class="form-control" type="number" value="{{quantity}}" name="quantity" required>
+	<input class="btn" type="submit" value="Изменить"></input>
+</form>	
+</div>
 {{/each}}

@@ -58,21 +58,18 @@ function deleteCategory() {
 
 function changeCategory() {
 	$('.changeCategory').on('click', function(){
-		var answer = confirm('Уверен?');
 		var category = $(this).data('id');
 		var oldName = $(this).data('name');
-		if (answer) {
-			$.ajax({
-				url: "../view/forms/changecategoryform.html",
-				success: function(html) {
-					$('#changeCategoryFormPlace').empty();
-					$('#changeCategoryFormPlace').append(html);
-					$('#inpuCategoryId').val(category);
-					$('#inputNewCategory').val(oldName).focus();
-					return false;
-				}
-			});
-		}
+		$.ajax({
+			url: "../view/forms/changecategoryform.html",
+			success: function(html) {
+				$('#changeCategoryFormPlace').empty();
+				$('#changeCategoryFormPlace').append(html);
+				$('#inpuCategoryId').val(category);
+				$('#inputNewCategory').val(oldName).focus();
+				return false;
+			}
+		});
 	});
 }
 

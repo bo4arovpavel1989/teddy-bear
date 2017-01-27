@@ -13,18 +13,19 @@
 	  </div>
   </div>
     <div class="form-group">
-		<input class="btn" type="submit" value="Добавить"></input>
+		<input class="btn btn-default" type="submit" value="Добавить"></input>
  </div>
 </form>
 {{#each category}}
-	<ul>
-		<li>{{name}}<a href='#' data-id='{{_id}}' class='deleteCategory'> -- удалить</a>
-		<a href='#' data-id='{{_id}}' data-name='{{name}}' class='changeCategory'> -- изменить</a>
+	<ul id='categoriesList'>
+		<li>{{name}}
+		<a href='#' title='Изменить' data-id='{{_id}}' data-name='{{name}}' class='changeCategory brownLink commandLink'><span class='glyphicon glyphicon-pencil'/></a>
+		<a href='#' title='Удалить' data-id='{{_id}}' class='deleteCategory  redLink commandLink'><span class='glyphicon glyphicon-trash'/></a>
 		</li>
 		{{#each this.subcategory}}
-			<p>{{this.name}}
-			<a href='#' data-parentid='{{../_id}}' data-id='{{this.id}}' class='deleteSubCategory'> -- удалить</a>
-			<a href='#' data-parentid='{{../_id}}' data-id='{{this.id}}' data-name='{{this.name}}' class='changeSubCategory'> -- изменить</a>
+			<p>  -  {{this.name}}
+			<a href='#' title='Изменить' data-parentid='{{../_id}}' data-id='{{this.id}}' data-name='{{this.name}}' class='changeSubCategory brownLink commandLink'><span class='glyphicon glyphicon-pencil'/></a>
+			<a href='#' title='Удалить' data-parentid='{{../_id}}' data-id='{{this.id}}' class='deleteSubCategory redLink commandLink'><span class='glyphicon glyphicon-trash'/></a>
 			</p>
 		{{/each}}
 	</ul>
