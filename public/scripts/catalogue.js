@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 function getProductAddForm(){
 	$.ajax({
-		url: '/getproductaddform',
+		url: '/admin/getproductaddform',
 		dataType: 'html',
 		success: function(html){
 			$('#addProductFormPlace').append(html);
@@ -21,7 +21,7 @@ function getProductAddForm(){
 function getSubCategories() {
 	$('#productAddCategory').on('change', function(){
 		var category=$('#productAddCategory option:selected').val();
-		var query = '/getsubcategories?category=' + category;
+		var query = '/admin/getsubcategories?category=' + category;
 		$.ajax({
 			url: query,
 			dataType: 'html',
@@ -71,7 +71,7 @@ function closeForm() {
 
 
 function getProductsList() {
-	var query = '/getproductslist';
+	var query = '/admin/getproductslist';
 		$.ajax({
 			url: query,
 			dataType: 'html',
@@ -91,7 +91,7 @@ function deleteProduct() {
 		var answer = confirm('Уверен?');
 		var product = $(this).data('id');
 		if (answer) {
-			var deleteQuery = '/deleteproduct?product=' + product;
+			var deleteQuery = '/admin/deleteproduct?product=' + product;
 			console.log(deleteQuery);
 			$.ajax({
 				url: deleteQuery,
@@ -108,7 +108,7 @@ function deleteProduct() {
 function changeProduct() {
 	$('.changeProduct').on('click', function(){
 		var product = $(this).data('id');
-		var query = '/getchangeproductform?product=' + product;
+		var query = '/admin/getchangeproductform?product=' + product;
 		$.ajax({
 			url: query,
 			type: 'get',

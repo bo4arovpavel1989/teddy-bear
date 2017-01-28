@@ -4,7 +4,7 @@ $(document).ready(function(){
 	
 function getCategories () {	
 			$.ajax({
-					url: '/getcategories',
+					url: '/admin/getcategories',
 					dataType: 'html',
 					success: function(html){
 						$("#categories").append(html);
@@ -43,7 +43,7 @@ function deleteCategory() {
 		var answer = confirm('Уверен?');
 		var category = $(this).data('id');
 		if (answer) {
-			var deleteQuery = '/deletecategory?category=' + category;
+			var deleteQuery = '/admin/deletecategory?category=' + category;
 			console.log(deleteQuery);
 			$.ajax({
 				url: deleteQuery,
@@ -79,7 +79,7 @@ function deleteSubCategory() {
 		var subcategory = $(this).data('id');
 		var parentCategory = $(this).data('parentid');
 		if (answer) {
-			var deleteQuery = '/deletesubcategory?subcategory=' + subcategory + '&parentcategory=' + parentCategory;
+			var deleteQuery = '/admin/deletesubcategory?subcategory=' + subcategory + '&parentcategory=' + parentCategory;
 			console.log(deleteQuery);
 			$.ajax({
 				url: deleteQuery,
