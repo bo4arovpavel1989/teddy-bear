@@ -1,5 +1,10 @@
 {{#each products}}
-<li class='productList' data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a> - {{quantity}}шт. в наличии - 
+<li class='productList' data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a> - {{quantity}}шт. в наличии -
+{{#if isHit}}
+	<a href='#' title='На главную' class='makeHit greenLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-certificate'/></a>
+{{else}}
+	<a href='#' title='На главную' class='makeHit commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-certificate'/></a>
+{{/if}}
 <a href='#' title='Количество' class='replenishment greenLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-plus-sign'/></a>
 <a href='#' title='Изменить' class='changeProduct brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-pencil'/></a>
 <a href='#' title='Удалить' class='deleteProduct redLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a></li>

@@ -81,6 +81,7 @@ function getProductsList() {
 				deleteProduct();
 				changeProduct();
 				showReplenishmentForm();
+				makeHit();
 			}
 		});
 }
@@ -125,6 +126,21 @@ function changeProduct() {
 function showReplenishmentForm() {
 	$('.replenishment').on('click', function(){
 		$(this).parent().next().toggleClass('hidden');
+	});
+}
+
+function makeHit() {
+	$('.makeHit').on('click', function(){
+		var that = $(this);
+		var product = $(this).data('id');
+		var query = '/admin/makehit?product=' + product;
+		$.ajax({
+				url: query,
+				type: 'post',
+				success: function(){
+						that.toggleClass('greenLink');
+				}
+			});
 	});
 }
 

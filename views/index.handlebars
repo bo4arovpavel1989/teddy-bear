@@ -11,22 +11,28 @@
 <body>
 <div class='container'>
 	<div class='row'>
-		<div class='col-md-4 text-center'>
+		<div class='col-md-4 text-center hidden-sm hidden-xs'>
 			<div class='text-left' id='brand'>
 			<p>Интернет-магазин</p>
 			<p>оригинальных мишек</p>
 			<p style='color: #d31558;'>"Me To You"</p>
 			</div>	
 		</div>
-		<div class='col-md-4 text-center'>
-			<h3>
-			logo
-			</h3>
+		<div class='col-md-4 text-center logo'>
+			<div id="header">
+				<div class="logo1">
+				<a href="/">
+					<img class='logoImage' src="images/page/logo.png" width="174" height="120" />
+				</a>
+				</div>
+			</div>
 		</div>
-		<div class='col-md-4 text-center callback'>
+		<div class='col-md-4 callback'>
+			<div class='text-center'>
 			<p style='font-size: 11pt;'>Есть вопросы? Звоните:</p>
 			<p id='phoneNumber'>8  950  00  99  33  7</p>
-			<p><button class='btn btn-primary'>Заказать звонок</button></p>	
+			<p><button class='btn btn-callback'>Заказать звонок</button></p>	
+			</div>
 		</div>
 	</div>
 <nav class="navbar navbar-default" role="navigation"> 
@@ -80,7 +86,7 @@
 		<div class='categoriesList'>
 			<ul class='nav nav-sidebar'>
 			{{#each category}}
-				 <li class="dropdown"><a href="#" data-toggle="dropdown">{{name}} <span class="glyphicon glyphicon-menu-down"></span></a>
+				 <li class="dropdown"><a href="#" data-toggle="dropdown">{{name}} <span style='float: right;' class="glyphicon glyphicon-menu-down"></span></a>
 					<ul class="dropdown-menu">
 						{{#each this.subcategory}}
 							<li><a href="#">{{name}}</a></li>
@@ -91,10 +97,28 @@
 			</ul>
 		</div>
     </div>
-	<div class='col-md-9'>
-		<p style='font-size: 20pt;'>
+	<div class='col-md-9 productsSpace'>
+		<p style='font-size: 20pt; margin-left: 20px;'>
 		Хиты продаж
 		</p>
+		{{#each product}}
+			<div class='col-md-3 productPlace text-center'>
+				<div class="productImage">
+				<a href="/products/{{address}}">
+					<img src="{{image_thumb}}" width="200" height="200" />
+				</a>
+				</div>
+				<div class='productName text-center'>
+					<a href='/products/{{address}}'>{{name}}</a>
+				</div>
+				<div class='productPrice text-center'>
+					<p>{{price}},00 руб.</p>
+				</div>
+				<div class='toCartButton text-center'>
+					<button class='btn btn-toCartButton'>В корзину</button>
+				</div>
+			</div>
+		{{/each}}
     </div>
 </div>
 </div>
