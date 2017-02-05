@@ -15,8 +15,9 @@ body {
 	background-color: #f5f5f5;
 	font-family: TTDrugs-Thin;
 	font-weight: 900;
-	font-size: 11pt;
+	font-size: 13pt;
 	padding-top: 50px;
+	z-index: 1;
 }
 
 p {
@@ -29,7 +30,7 @@ p {
 .nav {
 }
 #brand  p{
-	font-size: 16pt;
+	font-size: 18pt;
 	margin: 0 0 0 0;
 }	
 
@@ -37,6 +38,7 @@ p {
 	background-color:  #f5f5f5;
 	width: 300px;
 	height: 120px;
+	margin: auto;
 }
 
 .logo1 {
@@ -57,7 +59,7 @@ p {
 	margin: 0 0 0 0;
 	float: right;
 	padding-right: 0;
-	padding-left: 17%;
+	padding-left: 16%;
 	white-space: nowrap;
 }
 .callback p {
@@ -69,13 +71,13 @@ p {
 	background-color: #d31558;
 	color: white;
 	padding: 0.5% 10% 0.5% 10%;
-	font-size: 11pt;
+	font-size: 13pt;
 }
 
 #phoneNumber {
 	font-family: Myriad-pro;
 	font-weight: bolder;
-	font-size: 18pt;
+	font-size: 20pt;
 }
 
 .navbar-default {
@@ -94,6 +96,24 @@ p {
 .nav-tabs.nav-justified>li>a {
 	border: 0;
 }
+
+.sidebar {
+	z-index: 1;
+}
+
+#searchResult {
+	display: none;
+	z-index: 999;
+	position: absolute;
+	width: 90%;
+	background: white;
+	overflow: auto;
+	border: 1px solid grey;
+}
+#searchResult.active{
+	display: block;
+}
+
 .productsSpace {
 	
 }
