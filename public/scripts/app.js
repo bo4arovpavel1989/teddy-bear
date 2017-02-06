@@ -53,7 +53,6 @@ function hideSuggestion() {
 		if($('#searchResult').hasClass('active')) {
 			if (!$(e.target).closest("#searchArea").length) {
 				$('#searchResult').removeClass('active');
-				$(document).unbind('click');
 			}
 			e.stopPropagation();
 		}
