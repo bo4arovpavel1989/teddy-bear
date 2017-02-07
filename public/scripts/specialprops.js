@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	getAddSpecialPropFormForProduct();
+	getSpecialPropsList();
 });
 
 function getAddSpecialPropFormForProduct() {
@@ -14,5 +15,35 @@ function getAddSpecialPropFormForProduct() {
 				$('#addSpecialPropFormPlace').toggleClass('hidden');
 			}
 		});
+	});
+}
+
+function getSpecialPropsList() {
+	$.ajax({
+		url: '/admin/getspecialpropslist',
+		type: 'get',
+		dataType: 'html',
+		success: function(html) {
+			$('#specialPropsList').empty();
+			$('#specialPropsList').append(html);
+			deleteSpecialProp();
+		}
+	});
+}
+function deleteSpecialProp(){
+	$('.deleteSpecialProp').on('click', function(){
+		var answer = confirm('Уверен?');
+		if(answer) {
+			var specialProp = $(this).data('id');
+			var query='/admin/deletespecialprop?specialprop=' + specialProp;
+			$.ajax({
+				url: query,
+				type: 'delete',
+				success: function(){
+					alert('Акция удалена');
+					location.reload();
+				}
+			});
+		}
 	});
 }
