@@ -3,6 +3,7 @@ var searchAvailable = true;
 $(document).ready(function(){
 	searchProductRealtime();
 	searchProductSubmit();
+	categoryChoose();
 });
 
 
@@ -56,5 +57,14 @@ function hideSuggestion() {
 			}
 			e.stopPropagation();
 		}
+	});
+}
+
+function categoryChoose() {
+	$('.categoryChoose').on('click', function(e){
+		$(this).next().toggleClass('hidden');
+		$(this).parent().toggleClass('active');
+		$(this).toggleClass('active');
+		e.preventDefault();
 	});
 }
