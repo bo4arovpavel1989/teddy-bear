@@ -57,10 +57,14 @@
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-<div class='row'>
+<div class='row banners'>
 	<div class='col-md-offset-4 col-md-4'>
 		<div>
-			АКЦИЯ
+			<p style='font-size: 16pt; margin-bottom: 25px;'>Спец. предложение</p>
+			<p>{{specialProp.describe}}</p>
+			<div class='text-center'>
+			<a href='{{specialProp.link}}' style='color: #d31558; margin: auto; text-decoration: underline;'>Купить</a>
+			</div>
 		</div>
 	</div>
 	<div class='col-md-4'>
@@ -125,7 +129,7 @@
 				</div>
 				{{/unless}}
 				<div class='toCartButton text-center'>
-					<button class='btn btn-toCartButton'>В корзину</button>
+					<button class='btn btn-toCartButton' data-id={{_id}}>В корзину</button>
 				</div>
 			</div>
 		{{/each}}

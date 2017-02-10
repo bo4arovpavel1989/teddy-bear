@@ -68,3 +68,9 @@ function categoryChoose() {
 		e.preventDefault();
 	});
 }
+
+function addToCart(){
+	$('btn-toCartButton').on('click', function(){
+		var productId = $(this).data(id);
+	});
+}
