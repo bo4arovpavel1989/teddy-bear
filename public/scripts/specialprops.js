@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	getAddSpecialPropFormForProduct();
+	getAddSpecialPropFormForCategory();
 	getSpecialPropsList();
 });
 
@@ -7,6 +8,21 @@ function getAddSpecialPropFormForProduct() {
 	$('#showAddSpecialPropForProduct').on('click', function(){
 		$.ajax({
 			url: '/admin/getspecialpropformforproduct',
+			type: 'get',
+			dataType: 'html',
+			success: function(html) {
+				$('#addSpecialPropFormPlace').empty();
+				$('#addSpecialPropFormPlace').append(html);
+				$('#addSpecialPropFormPlace').toggleClass('hidden');
+			}
+		});
+	});
+}
+
+function getAddSpecialPropFormForCategory() {
+	$('#showAddSpecialPropForCategory').on('click', function(){
+		$.ajax({
+			url: '/admin/getspecialpropformforcategory',
 			type: 'get',
 			dataType: 'html',
 			success: function(html) {
