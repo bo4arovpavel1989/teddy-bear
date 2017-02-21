@@ -45,8 +45,7 @@ function addProductSubmit() {
 				contentType: false,
 				processData: false,
 				data: formData,
-				dataType: 'json',
-				success: function(html){
+				success: function(){
 						alert('Товар добавлен');
 						location.reload();
 				}

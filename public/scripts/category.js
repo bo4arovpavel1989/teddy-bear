@@ -29,8 +29,8 @@ function addSubCategorySubmit () {
 				contentType: false,
 				processData: false,
 				data: formData,
-				dataType: 'json',
 				success: function(){
+						alert('Подкатегория добавлена');
 						$('#inputSubCategory').val('');
 				}
 		});

@@ -31,7 +31,7 @@
 			<div class='text-center'>
 			<p style='font-size: 12pt;'>Есть вопросы? Звоните:</p>
 			<p id='phoneNumber'>8  950  00  99  33  7</p>
-			<p><button class='btn btn-callback'>Заказать звонок</button></p>	
+			<p><button class='btn btn-callback orderCallback'>Заказать звонок</button></p>	
 			</div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@
 	</div>
 </div>
 <div class='row'>
-	<div class='col-md-3 sidebar'>
+	<div class='col-md-3 col-sm-3 sidebar'>
 		<div id='searchArea'>
 		 <div class="input-group">
 			<input type="text" class="form-control searchProduct" placeholder="Поиск товара">
@@ -110,7 +110,7 @@
 		Хиты продаж
 		</p>
 		{{#each product}}
-			<div class='col-md-3 productPlace text-center'>
+			<div class='col-md-3 col-sm-3 productPlace text-center'>
 				<div class="productImage">
 				<a href="/products/{{address}}">
 					<img src="{{image_thumb}}" width="200" height="200" />
