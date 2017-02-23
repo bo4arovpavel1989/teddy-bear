@@ -96,9 +96,8 @@ function deleteProduct() {
 			$.ajax({
 				url: deleteQuery,
 				type: 'delete',
-				success: function(data){
-						alert(data);
-						location.reload();
+				success: function(){
+						getProductsList();
 				}
 			});
 		}

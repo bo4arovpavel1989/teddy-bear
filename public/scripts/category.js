@@ -7,6 +7,7 @@ function getCategories () {
 					url: '/admin/getcategories',
 					dataType: 'html',
 					success: function(html){
+						$("#categories").empty();
 						$("#categories").append(html);
 						addSubCategorySubmit();
 						deleteCategory();
@@ -32,6 +33,7 @@ function addSubCategorySubmit () {
 				success: function(){
 						alert('Подкатегория добавлена');
 						$('#inputSubCategory').val('');
+						getCategories();
 				}
 		});
 		
@@ -49,7 +51,7 @@ function deleteCategory() {
 				url: deleteQuery,
 				type: 'delete',
 				success: function(){
-						location.reload();
+						getCategories();
 				}
 			});
 		}
@@ -85,7 +87,7 @@ function deleteSubCategory() {
 				url: deleteQuery,
 				type: 'delete',
 				success: function(){
-						location.reload();
+						getCategories();
 				}
 			});
 		}
