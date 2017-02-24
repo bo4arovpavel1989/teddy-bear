@@ -57,7 +57,7 @@ function deleteSpecialProp(){
 				type: 'delete',
 				success: function(){
 					alert('Акция удалена');
-					location.reload();
+					getSpecialPropsList();
 				}
 			});
 		}

@@ -89,13 +89,13 @@
 		</div>
 		<div id='cart'>
 			<p>КОРЗИНА</p>
-			<p>В корзине нет товаров</p>
+			<p class='productQuantity'>В корзине нет товаров</p>
 		</div>
 		<div class='categoriesList'>
 			<ul class='nav nav-sidebar'>
 			{{#each category}}
 				 <li><a href="#" class='categoryChoose'>{{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
-					<ul class="dropdown-subcategory hidden">
+					<ul class="dropdown-subcategory" style='display: none;'>
 						{{#each this.subcategory}}
 							<li><a href="#" class='subcategoryChoose'>{{name}}</a></li>
 						{{/each}}

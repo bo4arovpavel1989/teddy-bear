@@ -9,7 +9,7 @@
 <a href='#' title='Изменить' class='changeProduct brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-pencil'/></a>
 <a href='#' title='Удалить' class='deleteProduct redLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a></li>
 <div class='hidden replenishmentFormPlace'>
-<form class='form-inline' action="/admin/replenishproduct" method="post">
+<form class='form-inline replenishmentForm' action="/admin/replenishproduct" method="post">
 	<input type="login" class="form-control hidden" id="inputID" name='id' value='{{_id}}' required>
     <input class="form-control" type="number" value="{{quantity}}" name="quantity" required>
 	<input class="btn" type="submit" value="Изменить"></input>

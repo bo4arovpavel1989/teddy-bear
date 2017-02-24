@@ -68,6 +68,10 @@ form {
 	margin-left: 50px;
 }
 
+.replenishmentForm{
+	margin-top: 0;
+}
+
 #callbackList {
 	margin-top: 30px;
 	margin-left: 50px;
