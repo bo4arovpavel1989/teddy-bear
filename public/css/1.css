@@ -52,6 +52,7 @@ form {
 #productsList {
 	margin-top: 30px;
 	margin-left: 50px;
+	z-index: 1;
 }
 
 #changeProduct {
@@ -64,12 +65,13 @@ form {
 }
 
 .replenishmentFormPlace {
-	width: 30%;
-	margin-left: 50px;
+	opacity: 1;
 }
 
 .replenishmentForm{
 	margin-top: 0;
+	opacity: 1 !important;
+	z-index: 999;
 }
 
 #callbackList {

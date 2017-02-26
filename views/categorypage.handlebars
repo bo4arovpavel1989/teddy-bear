@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class='col-md-4 callback'>
-			<div class='text-center'>
+			<div class='text-center orderCallbackBanner'>
 			<p style='font-size: 12pt;'>Есть вопросы? Звоните:</p>
 			<p id='phoneNumber'>8  950  00  99  33  7</p>
 			<p><button class='btn btn-callback orderCallback'>Заказать звонок</button></p>	
@@ -60,11 +60,13 @@
 <div class='row banners'>
 	<div class='col-md-offset-4 col-md-4'>
 		<div>
+			{{#if specialProp.describe}}
 			<p style='font-size: 16pt; margin-bottom: 25px;'>Спец. предложение</p>
 			<p>{{specialProp.describe}}</p>
-			<div class='text-center'>
-			<a href='{{specialProp.link}}' style='color: #d31558; margin: auto; text-decoration: underline;'>Купить</a>
+			<div class='text-center' style='margin-top: 25px;'>
+			<a href='{{specialProp.link}}' style='color: #d31558; text-decoration: underline;'>Купить</a>
 			</div>
+			{{/if}}
 		</div>
 	</div>
 	<div class='col-md-4'>
@@ -97,7 +99,7 @@
 				 <li><a href="#" class='categoryChoose'>{{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
 					<ul class="dropdown-subcategory" style='display: none;'>
 						{{#each this.subcategory}}
-							<li><a href="/category/{{../_id}}/{{id}}" class='subcategoryChoose'>{{name}}</a></li>
+							<li><a href="/subcategory/{{../_id}}/{{id}}" class='subcategoryChoose'>{{name}}</a></li>
 						{{/each}}
 					</ul>                    
 				</li>
@@ -107,7 +109,10 @@
     </div>
 	<div class='col-md-9 productsSpace'>
 		<p style='font-size: 21pt; margin-left: 20px;'>
-		{{title.name}} - {{title.subcatname}}
+		{{title.name}} 
+		{{#if title.subcatname}}
+			- {{title.subcatname}}
+		{{/if}}	
 		</p>
 		{{#each product}}
 			<div class='col-md-3 col-sm-3 productPlace text-center'>

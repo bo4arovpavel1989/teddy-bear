@@ -35,12 +35,24 @@ function getCallbackForm() {
 			url: '/getcallbackform',
 			dataType: 'html',
 			success: function(html) {
-				$('.callback').empty();
+				$('.orderCallbackBanner').hide();
 				$('.callback').hide();
 				$('.callback').append(html);
 				$('.callback').show(400);
+				hideCallbackForm();
 			}
 		});
+	});
+}
+
+function hideCallbackForm() {
+	$(document).on('click', function(e) {
+		if (!$(e.target).closest("#callbackForm").length) {
+			$('#callbackForm').remove();
+			$('.orderCallbackBanner').show(400);
+			$(document).off();
+		}
+		e.stopPropagation();
 	});
 }
 

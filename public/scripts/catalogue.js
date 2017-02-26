@@ -123,7 +123,7 @@ function changeProduct() {
 
 function showReplenishmentForm() {
 	$('.replenishment').on('click', function(){
-		$(this).parent().next().toggleClass('hidden');
+		$(this).parent().parent().next().toggleClass('hidden');
 	});
 }
 
