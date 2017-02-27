@@ -2,6 +2,7 @@ var searchAvailable = true;
 
 $(document).ready(function(){
 	getCallbackForm();
+	menuSticky();
 	searchProductRealtime();
 	searchProductSubmit();
 	categoryChoose();
@@ -50,11 +51,24 @@ function hideCallbackForm() {
 		if (!$(e.target).closest("#callbackForm").length) {
 			$('#callbackForm').remove();
 			$('.orderCallbackBanner').show(400);
-			$(document).off();
 		}
 		e.stopPropagation();
 	});
 }
+
+function menuSticky() {
+	var closeWindowPositionY = document.querySelector('.navbar').offsetTop;
+	$(window).scroll(function(){										
+		if(window.scrollY > closeWindowPositionY) {
+			document.querySelector('.navbar').classList.add('stickyMenu', 'container');
+			document.querySelector('.banners').classList.add('rowBannersSticky');
+		}	else {
+			document.querySelector('.navbar').classList.remove('stickyMenu', 'container');
+			document.querySelector('.banners').classList.remove('rowBannersSticky');
+		}																			
+	});
+}
+
 
 function searchProductSubmit() {
 	$('.searchSubmit').on('click', function(){
