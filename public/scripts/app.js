@@ -12,8 +12,8 @@ $(document).ready(function(){
 
 function checkCart() {
 	var cartArray = getCookie('cart');
-	cartArray = cartArray.split(', ');
 	if (cartArray !== undefined) {
+		cartArray = cartArray.split(', ');
 		var quantity = cartArray.length;
 		switch(quantity) {
 			case 1: 
@@ -147,7 +147,6 @@ function getCookie(name) {
 }
 
 function setCookie(name, value, options) {
-	console.log(1);
   options = options || {};
 
   var expires = options.expires;
@@ -174,7 +173,6 @@ function setCookie(name, value, options) {
       updatedCookie += "=" + propValue;
     }
   }
-  console.log(updatedCookie);
   document.cookie = updatedCookie;
 }
 
