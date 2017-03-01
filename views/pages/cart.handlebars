@@ -1,0 +1,14 @@
+<p style='font-size: 21pt; margin-left: 20px;'>Корзина</p>
+<table>
+{{#each product}}
+<tr>
+<td class='productItem' data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a></td><td> - 
+{{#if isSpecialProp}}
+	{{discount}} 
+{{else}}
+	{{price}}
+{{/if}}	
+ руб. 
+</td>
+{{/each}}
+</table>
