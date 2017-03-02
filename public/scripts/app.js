@@ -86,12 +86,6 @@ function searchProductRealtime() {
 	});
 }
 
-function clickSearchResutItem(){
-	$('.searchResultItem').on('click', function(){
-		var address = $(this).data('address');
-		location.assign(address);
-	});
-}
 
 function searchSuggestion() {
 	var productToFind = $('.searchProduct').val();
@@ -109,6 +103,13 @@ function searchSuggestion() {
 			}
 		});
 	}
+}
+
+function clickSearchResutItem(){
+	$('.searchResultItem').on('click', function(){
+		var address = $(this).data('address');
+		location.assign(address);
+	});
 }
 
 function hideSuggestion() {
