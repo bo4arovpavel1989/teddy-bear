@@ -1,17 +1,50 @@
 <p style='font-size: 21pt; margin-left: 20px;'>Корзина</p>
-<table>
-{{#each product}}
-<tr>
-<td class='productItem' data-id='{{_id}}'><a href='/products/{{address}}'>{{name}}</a></td><td> - 
-{{#if isSpecialProp}}
-	{{discount}} 
-{{else}}
-	{{price}}
-{{/if}}	
- руб. 
-</td>
-<td>
- - {{howMany}} - шт.
-</td>
-{{/each}}
-</table>
+<form id="cartForm" class='col-md-9' action="/makeorder" method="post" style="margin-left: 5%;">
+<h3 class='active'>Покупки</h3>
+<div class="form-group cart-group">
+	<table>
+		{{#each product}}
+	<tr>
+	<td class='productItem' data-id='{{_id}}' data-price=
+		{{#if isSpecialProp}}
+			'{{discount}}' 
+		{{else}}
+			'{{price}}'
+		{{/if}}>
+		<a href='/products/{{address}}'>{{name}}</a>
+	</td>
+	<td>
+		<input type="number" size="3" name="howMany" class='productHowMany' onchange='recalculatePrice($(this));' min="1" value="{{howMany}}" style='width: 50px; margin-right: 20px;'>
+	</td>
+	<td class='productInCartPrice'> - 
+		<div class='sumPrice' style='display: inline;'>{{sumPrice}}</div>	
+		руб. 
+	</td>
+	<td> - 
+		<a href='#' title='Удалить' class='deleteProductFromCart redLink commandLink'><span class='glyphicon glyphicon-trash'/></a> 
+	</td>
+	{{/each}}
+	</tr>
+	<tr>
+	<td></td>
+	<td></td>
+	<td>Итого</td>
+	<td id='totalPrice'></td>
+	<tr>
+	</table>	
+	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
+</div>
+<h3>Доставка</h3>
+<div class="form-group delivery-group hidden">
+	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
+	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
+ </div>
+<h3>Личные данные</h3>
+ <div class="form-group info-group hidden">
+	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
+ </div>
+</form>
+
+
+<input class="btn btn-primary" type="submit" value="Добавить"></input>
+<script src='/scripts/cart.js'></script>

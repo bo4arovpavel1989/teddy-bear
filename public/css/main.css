@@ -207,3 +207,18 @@ p {
 	background-color: green;
 	color: white;
 }
+
+.commandLink {
+	margin-left: 20px;
+	color: red;
+}
+.greenLink {
+	color: green;
+}
+.redLink {
+	color: red;
+}
+
+.brownLink {
+	color: brown;
+}
