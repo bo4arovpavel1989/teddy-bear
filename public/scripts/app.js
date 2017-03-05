@@ -17,15 +17,15 @@ function checkCart() {
 		var quantity = cartArray.length;
 		switch(quantity) {
 			case 1: 
-				$('.productQuantity').html('В корзине - <b class="active">1</b> товар');
+				$('.productQuantity').html('В <a href="/cart" id="cartLink"  class="active" title="Оформить заказ">корзине - <b>1</b></a> товар');
 				break;
 			case 2:
 			case 3:
 			case 4:
-				$('.productQuantity').html('В корзине - <b class="active">' + quantity + '</b> товара');
+				$('.productQuantity').html('В <a href="/cart" id="cartLink"  class="active" title="Оформить заказ">корзине - <b>' + quantity + '</b></a> товара');
 				break;
 			default:
-				$('.productQuantity').html('В корзине - <b class="active">' + quantity + '</b> товаров');
+				$('.productQuantity').html('В <a href="/cart" id="cartLink"  class="active" title="Оформить заказ">корзине - <b>' + quantity + '</b></a> товаров');
 		}
 	}
 }

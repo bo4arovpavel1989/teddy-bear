@@ -222,3 +222,8 @@ p {
 .brownLink {
 	color: brown;
 }
+
+.productHowMany {
+	text-align: center;
+	margin-left: 20px;
+}

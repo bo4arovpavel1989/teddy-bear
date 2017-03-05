@@ -16,11 +16,11 @@
 	<td>
 		<input type="number" size="3" name="howMany" class='productHowMany' onchange='recalculatePrice($(this));' min="1" value="{{howMany}}" style='width: 50px; margin-right: 20px;'>
 	</td>
-	<td class='productInCartPrice'> - 
+	<td class='productInCartPrice'> 
 		<div class='sumPrice' style='display: inline;'>{{sumPrice}}</div>	
 		руб. 
 	</td>
-	<td> - 
+	<td>
 		<a href='#' title='Удалить' class='deleteProductFromCart redLink commandLink'><span class='glyphicon glyphicon-trash'/></a> 
 	</td>
 	{{/each}}
@@ -35,16 +35,27 @@
 	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
 </div>
 <h3>Доставка</h3>
-<div class="form-group delivery-group hidden">
+<div class="form-group delivery-group" style='display: none;'>
+	<input type="radio" id="fedex" name="fedex" checked>
+	<label for="fedex">Курьерская доставка</label><br>
+	<input type="radio" id="pickup" name="pickup">
+	<label for="pickup">Самовывоз</label><br>
+	<a href="#" onclick="glavpunkt.openMap(selectPunkt); return false;">Выбрать пункт выдачи на карте</a> 
+	<textarea name="" id="selectedPunkt" cols="50" rows="4" style="border: 1px solid #999;margin-top: 10px;">
+	</textarea>
+	<br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
 	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
  </div>
 <h3>Личные данные</h3>
- <div class="form-group info-group hidden">
+ <div class="form-group info-group" style='display: none;'>
+	<input name="name" type="text" placeholder="Введите имя"><br><br>
+	<input name="email" type="email" placeholder="Введите email"><br><br>
+	<input name="phone" type="phone" placeholder="Введите телефон"><br><br>
+	<input name="address" type="text" placeholder="Введите адрес"><br><br>
+	<textarea name="comment" placeholder="Комментарий"></textarea><br><br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
+	<input class="btn btn-primary" type="submit" id='makeOrder' value="Оформить заказ"></input>
  </div>
 </form>
-
-
-<input class="btn btn-primary" type="submit" value="Добавить"></input>
 <script src='/scripts/cart.js'></script>
