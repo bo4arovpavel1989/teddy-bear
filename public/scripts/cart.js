@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	deleteProductFromCart();
 	calculateTotalPrice();
+	cartSubmit();
 });
 
 function openPrevSection(button){
@@ -65,6 +66,45 @@ function selectPunkt(punktInfo) {
   address += ("Название (метро или адрес): " + punktInfo.name); 
   address += ("Адрес: " + punktInfo.address); 
   $('#selectedPunkt').val(address);
+  $('#selectedPunkt').show(400);
   $('#pickup').prop('checked', true);
   $('#fedex').prop('checked', false);
-}  
+} 
+
+function cartSubmit() {
+	$('#cartForm').on('submit', function(e){
+		e.preventDefault();
+		var data = {
+			product: [],
+			info: {}
+		};
+		var productCount = 0;
+		$('.productItem').each(function(){
+			data.product.push({_id: $(this).data('id'), name:  $(this).find('a').html(), howMany: $(this).next().find('.productHowMany').val()});
+			productCount++;
+		});
+		data.fedex = $('input[name="fedex"]:checked').val();
+		if (data.fedex === "pickup") data.outpost = $('#selectedPunkt').val();
+		data.productCount = productCount;
+		data.name = $('#customerName').val(), 
+		data.email = $('#customerEmail').val(),
+		data.phone = $('#customerPhone').val(),
+		data.address = $('#customerAddress').val(),
+		data.comment = $('#customerComment').val(),
+		
+		$.ajax({
+        type: "POST",
+        url: "/makeorder",
+        data: data,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "application/json",
+        success: function(){
+			alert("Заказ принят в работу!");
+			location.assign('/');
+		}
+  });
+		console.log(data);
+	});
+}
+
+	

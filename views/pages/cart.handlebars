@@ -23,8 +23,8 @@
 	<td>
 		<a href='#' title='Удалить' class='deleteProductFromCart redLink commandLink'><span class='glyphicon glyphicon-trash'/></a> 
 	</td>
-	{{/each}}
 	</tr>
+	{{/each}}
 	<tr>
 	<td></td>
 	<td></td>
@@ -36,12 +36,14 @@
 </div>
 <h3>Доставка</h3>
 <div class="form-group delivery-group" style='display: none;'>
-	<input type="radio" id="fedex" name="fedex" checked>
+	<input type="radio" id="fedex" name="fedex" value='fedex' checked>
 	<label for="fedex">Курьерская доставка</label><br>
-	<input type="radio" id="pickup" name="pickup">
+	<input type="radio" id="post" value='post' name="fedex">
+	<label for="post">Отправка почтой РФ</label><br>
+	<input type="radio" id="pickup" value='pickup' name="fedex">
 	<label for="pickup">Самовывоз</label><br>
 	<a href="#" onclick="glavpunkt.openMap(selectPunkt); return false;">Выбрать пункт выдачи на карте</a> 
-	<textarea name="" id="selectedPunkt" cols="50" rows="4" style="border: 1px solid #999;margin-top: 10px;">
+	<textarea name="" id="selectedPunkt" cols="50" rows="4" style="border: 1px solid #999;margin-top: 10px; display: none;">
 	</textarea>
 	<br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
@@ -49,11 +51,11 @@
  </div>
 <h3>Личные данные</h3>
  <div class="form-group info-group" style='display: none;'>
-	<input name="name" type="text" placeholder="Введите имя"><br><br>
-	<input name="email" type="email" placeholder="Введите email"><br><br>
-	<input name="phone" type="phone" placeholder="Введите телефон"><br><br>
-	<input name="address" type="text" placeholder="Введите адрес"><br><br>
-	<textarea name="comment" placeholder="Комментарий"></textarea><br><br>
+	<input name="name" id='customerName' type="text" placeholder="Введите имя"><br><br>
+	<input name="email" id='customerEmail' type="email" placeholder="Введите email"><br><br>
+	<input name="phone" id='customerPhone' type="phone" placeholder="Введите телефон"><br><br>
+	<input name="address" id='customerAddress' type="text" placeholder="Введите адрес"><br><br>
+	<textarea name="comment" id='customerComment' placeholder="Комментарий"></textarea><br><br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
 	<input class="btn btn-primary" type="submit" id='makeOrder' value="Оформить заказ"></input>
  </div>

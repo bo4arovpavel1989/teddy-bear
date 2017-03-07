@@ -4,7 +4,7 @@
 		if (!$(this).parent().hasClass('active')) {
 			$('.active').removeClass("active");
 			$(this).parent().addClass("active");
-			var targetFile = '../view/tabs/' + $(this).html() + ".html";
+			var targetFile = '../view/tabs/' + $(this).data('name') + ".html";
 			$("#tabsData").empty();
 			$(document).off();
 			$.ajax({
