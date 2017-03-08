@@ -49,9 +49,9 @@ function calculateTotalPrice(){
 function selectPunkt(punktInfo) { 
   var address = '';
   address += ("Город: " + punktInfo.city); 
-  address += ("ID пункта выдачи: " + punktInfo.id); 
-  address += ("Название (метро или адрес): " + punktInfo.name); 
-  address += ("Адрес: " + punktInfo.address); 
+  address += ("\r\nID пункта выдачи: " + punktInfo.id); 
+  address += ("\r\nНазвание (метро или адрес): " + punktInfo.name); 
+  address += ("\r\nАдрес: " + punktInfo.address); 
   $('#selectedPunkt').val(address);
   $('#selectedPunkt').show(400);
   $('#pickup').prop('checked', true);
@@ -84,9 +84,9 @@ function cartSubmit() {
         url: "/makeorder",
         data: data,
         contentType: "application/x-www-form-urlencoded",
-        dataType: "application/json",
         success: function(){
 			alert("Заказ принят в работу!");
+			deleteCookie('cart');
 			location.assign('/');
 		}
   });
