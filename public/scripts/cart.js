@@ -18,24 +18,11 @@ function openNextSection(button){
 		button.parent().next().next().show(400);
 }
 
-/*
-function openPrevSection(button){
-		button.parent().addClass('hidden');
-		button.parent().prev().removeClass('active');
-		button.parent().prev().prev().removeClass('hidden');
-		button.parent().prev().prev().prev().addClass('active');
-}
 
-function openNextSection(button){
-		button.parent().addClass('hidden');
-		button.parent().prev().removeClass('active');
-		button.parent().next().addClass('active');
-		button.parent().next().next().removeClass('hidden');
-}
-*/
 function recalculatePrice(priceField) {
 	var price = priceField.parent().prev().data('price');
 	var newPrice = Number(price) * priceField.val();
+	newPrice = Math.floor(newPrice);
 	priceField.parent().next().children('.sumPrice').html(newPrice);
 	calculateTotalPrice()
 }
