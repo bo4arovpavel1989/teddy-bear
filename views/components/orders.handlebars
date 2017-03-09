@@ -1,0 +1,28 @@
+{{#each order}}
+{{#if isItNew}}
+	<p class='newOrder'>
+{{else}}	
+	<p>
+{{/if}}	
+	<a href='#' class='showInfo'>{{name}} - {{date}}</a> - 
+	{{#if isItNew}}
+	<a href='#' title='В работу' class='markSeenOrder greenLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-ok'/></a>
+	{{/if}}
+	{{#if isActive}}
+	<a href='#' title='Заказ отработан' class='markDoneOrder brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-eject'/></a>
+	{{/if}}
+	<a href='#' title='Удалить' class='deleteOrder redLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a>
+	</p>
+	<div class='orderInfo hidden'>
+		{{#each product}}
+			<p><b class='greenLink'>{{name}}</b> - {{howMany}} шт. - по {{price}} руб.</p>
+		{{/each}}
+		<div class='totalPrice'><b>Итого</b>: {{totalPrice}} руб.</div>
+		<p><b>эл. почта</b>: {{email}}</p>
+		<p><b>адрес</b>: {{address}}</p>
+		<p><b>телефон</b>: {{phone}}</p>
+		<p><b>тип доставки</b>: {{fedex}}</p>
+		<p><b>главпункт</b>: {{outpost}}</p>
+		<p><b>комментарий</b>: {{comment}}</p>
+	</div>
+{{/each}}
