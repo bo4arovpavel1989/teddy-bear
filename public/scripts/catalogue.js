@@ -47,7 +47,9 @@ function addProductSubmit() {
 				data: formData,
 				success: function(){
 						alert('Товар добавлен');
-						location.reload();
+						$('#addProductFormPlace').toggleClass('hidden');
+						$('#productsList').toggleClass('hidden');
+						getProductsList();
 				}
 		});
 		
@@ -81,6 +83,7 @@ function getProductsList() {
 				changeProduct();
 				showReplenishmentForm();
 				makeHit();
+				replenishmentFormSubmit();
 			}
 		});
 }
@@ -116,7 +119,29 @@ function changeProduct() {
 					$('#changeProductFormPlace').append(html);
 					closeForm();
 					$('#productsList').addClass('hidden');
+					changeProductSubmit();
 			}
+		});
+	});
+}
+
+function changeProductSubmit(){
+	$('#changeProduct').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(formData);
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						$('#changeProductFormPlace').empty();
+						$('#productsList').toggleClass('hidden');
+						getProductsList();
+				}
 		});
 	});
 }
@@ -142,7 +167,24 @@ function makeHit() {
 	});
 }
 
-
+function replenishmentFormSubmit(){
+	$('.replenishmentForm').on('submit', function(e){
+			e.preventDefault();
+			var $that = $(this);
+			var formData = new FormData($that.get(0));
+			console.log(1);
+			$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						getProductsList();
+				}
+		});
+	});
+}
 
 
 

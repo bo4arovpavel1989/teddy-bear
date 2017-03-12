@@ -9,14 +9,16 @@ form {
 	display: none;
 }
 
-.commandLink {
+.commandLink, .commandLink:focus {
 	margin-left: 20px;
 	color: red;
 }
-.greenLink {
+.greenLink, .greenLink:focus {
 	color: green;
 }
-.redLink {
+
+
+.redLink, .redLink:focus {
 	color: red;
 }
 

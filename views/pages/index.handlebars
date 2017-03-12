@@ -9,7 +9,7 @@
 				</a>
 				</div>
 				<div class='productName text-center'>
-					<a href='/products/{{address}}' title='{{name}}'>{{name}}</a>
+					<a class='productNameLink' href='/products/{{address}}' title='{{name}}'>{{name}}</a>
 				</div>
 				{{#unless isSpecialProp}}
 				<div class='productPrice text-center'>
@@ -17,7 +17,7 @@
 				</div>
 				{{else}}
 				<div class='productPrice text-center'>
-					<div class='discountOldPrice'>{{price}},00 руб.</div> {{discount}},00 руб.	
+					<div class='discountOldPrice'>{{price}},00 </div> {{discount}},00 руб.	
 				</div>
 				{{/unless}}
 				<div class='toCartButton text-center'>

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	getCategories();
+	addCategorySubmit();
 });
 	
 function getCategories () {	
@@ -16,6 +17,27 @@ function getCategories () {
 						changeSubCategory()
 					}
 				});
+}
+
+function addCategorySubmit(){
+	$('#addCategory').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(formData);
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						alert('Rатегория добавлена');
+						$('#inputCategory').val('');
+						getCategories();
+				}
+		});
+	});
 }
 
 function addSubCategorySubmit () {

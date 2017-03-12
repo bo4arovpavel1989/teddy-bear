@@ -203,9 +203,19 @@ p {
     background: #f0f0f0; /* Цвет фона */
     
    }
-
+.productName {
+	overflow: hidden;
+	background-color: white;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: black !important;
+}
+.productNameLink {
+	color: black !important;
+}
 .productPrice {
-	font-size: 10pt;
+	font-size: 13pt;
+	background-color: #F2FCF6;
 }
 
 .discountOldPrice {
