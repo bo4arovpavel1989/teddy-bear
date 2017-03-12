@@ -16,6 +16,8 @@
 		<input class="btn btn-default" type="submit" value="Добавить"></input>
  </div>
 </form>
+<div id='changeCategoryFormPlace'>
+</div>
 {{#each category}}
 	<ul id='categoriesList'>
 		<li>{{name}}
@@ -23,7 +25,7 @@
 		<a href='#' title='Удалить' data-id='{{_id}}' class='deleteCategory  redLink commandLink'><span class='glyphicon glyphicon-trash'/></a>
 		</li>
 		{{#each this.subcategory}}
-			<p>  -  {{this.name}}
+			<p>  |_  {{this.name}}
 			<a href='#' title='Изменить' data-parentid='{{../_id}}' data-id='{{this.id}}' data-name='{{this.name}}' class='changeSubCategory brownLink commandLink'><span class='glyphicon glyphicon-pencil'/></a>
 			<a href='#' title='Удалить' data-parentid='{{../_id}}' data-id='{{this.id}}' class='deleteSubCategory redLink commandLink'><span class='glyphicon glyphicon-trash'/></a>
 			</p>

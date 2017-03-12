@@ -45,7 +45,6 @@ function addSubCategorySubmit () {
 		e.preventDefault();
 		var $that = $(this);
 		var formData = new FormData($that.get(0));
-		console.log(formData);
 		$.ajax({
 				url: $that.attr('action'),
 				type: $that.attr('method'),
@@ -91,8 +90,29 @@ function changeCategory() {
 				$('#changeCategoryFormPlace').append(html);
 				$('#inpuCategoryId').val(category);
 				$('#inputNewCategory').val(oldName).focus();
+				changeCategorySubmit();
 				return false;
 			}
+		});
+	});
+}
+
+function changeCategorySubmit(){
+	$('#changeCategory').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(formData);
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						$('#changeCategoryFormPlace').empty();
+						getCategories();
+				}
 		});
 	});
 }
@@ -118,11 +138,9 @@ function deleteSubCategory() {
 
 function changeSubCategory() {
 	$('.changeSubCategory').on('click', function(){
-		var answer = confirm('Уверен?');
 		var subcategory = $(this).data('id');
 		var oldName = $(this).data('name');
 		var parentCategory = $(this).data('parentid');
-		if (answer) {
 			$.ajax({
 				url: "../view/forms/changesubcategoryform.html",
 				success: function(html) {
@@ -131,9 +149,29 @@ function changeSubCategory() {
 					$('#inputCategoryId').val(parentCategory);
 					$('#inputSubCategoryId').val(subcategory);
 					$('#inputNewSubCategory').val(oldName).focus();
+					changeSubCategorySubmit();
 					return false;
 				}
 			});
-		}
+	});
+}
+
+function changeSubCategorySubmit(){
+	$('#changeSubCategory').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(formData);
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						$('#changeCategoryFormPlace').empty();
+						getCategories();
+				}
+		});
 	});
 }

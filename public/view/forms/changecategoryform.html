@@ -1,4 +1,4 @@
-<form id="changeCategory" class="form-inline" action="/admin/changecategory" method="post" style="margin-left: 5%;">
+<form id="changeCategory" class="form-inline" action="/admin/changecategory" method="post" enctype="multipart/form-data" style="margin-left: 5%;">
    <div class="form-group" style='display: none;'>
 	<div class="input-group">
       <input type="login" class="form-control" id="inpuCategoryId" name='categoryId' readonly>
@@ -11,5 +11,6 @@
     </div>
     <div class="form-group">
 		<input class="btn" type="submit" value="Изменить"></input>
+		<a class="btn" onclick="$('#changeCategoryFormPlace').empty();">Закрыть</a>
 	</div>
 </form>

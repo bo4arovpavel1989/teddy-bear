@@ -2,6 +2,8 @@ $(document).ready(function(){
 	deleteProductFromCart();
 	calculateTotalPrice();
 	cartSubmit();
+	var cartTitle = document.getElementById("cartTitle");
+	cartTitle.scrollIntoView(true);
 });
 
 function openPrevSection(button){

@@ -32,9 +32,6 @@ form {
 }
 
 #changeCategory {
-	position: fixed!important;
-    bottom: 0; /* Положение от нижнего края */
-    right: 0; 
     display: block;
     overflow: hidden;
 	width: 30%;
@@ -42,9 +39,6 @@ form {
 }
 
 #changeSubCategory {
-	position: fixed!important;
-    bottom: 0; /* Положение от нижнего края */
-    right: 0; 
     display: block;
     overflow: hidden;
 	width: 30%;
@@ -84,6 +78,11 @@ form {
 	background-color: #E3E3E3;
 }
 
+
+#orderList{
+	margin-top: 30px;
+	margin-left: 50px;
+}
 .newOrder{
 	background-color: #E3E3E3;
 }

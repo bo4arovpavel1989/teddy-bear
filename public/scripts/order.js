@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	getOrders();
 	orderArchive();
+	orderDeleted();
 	backToOrders();
 });
 
@@ -97,6 +98,7 @@ function deleteOrder(){
 function orderArchive(){
 	$('#orderArchive').on('click', function(){
 		$(this).toggleClass('hidden');
+		$('#orderDeleted').addClass('hidden');
 		$('#backToOrders').toggleClass('hidden');
 		$.ajax({
 			url: '/admin/getorderarchive',
@@ -112,10 +114,29 @@ function orderArchive(){
 	});
 }
 
+function orderDeleted(){
+	$('#orderDeleted').on('click', function(){
+		$(this).addClass('hidden');
+		$('#orderArchive').addClass('hidden');
+		$('#backToOrders').removeClass('hidden');
+		$.ajax({
+			url: '/admin/getorderdeleted',
+			dataType: 'html',
+			success: function(data) {
+				$('#orderList').empty();
+				$('#orderList').append(data);
+				showInfo();
+			}
+		});
+		return false;
+	});
+}
+
 function backToOrders(){
 	$('#backToOrders').on('click', function(){
-		$(this).toggleClass('hidden');
-		$('#orderArchive').toggleClass('hidden');
+		$(this).addClass('hidden');
+		$('#orderArchive').removeClass('hidden');
+		$('#orderDeleted').removeClass('hidden');
 		getOrders();
 		return false;
 	});
