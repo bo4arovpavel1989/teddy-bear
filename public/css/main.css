@@ -262,6 +262,15 @@ p {
 	white-space: nowrap;
 }
 
+.cart-section:hover {
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+
 tr {
 	margin-top: 20px;
 }

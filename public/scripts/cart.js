@@ -4,6 +4,7 @@ $(document).ready(function(){
 	cartSubmit();
 	var cartTitle = document.getElementById("cartTitle");
 	cartTitle.scrollIntoView(true);
+	switchCartSection();
 });
 
 function openPrevSection(button){
@@ -96,4 +97,27 @@ function cartSubmit() {
 	});
 }
 
-	
+function switchCartSection(){
+	$('.cart-section').on('click', function(){
+		if(!$(this).hasClass('active')) {
+			$('.active.cart-section').next().hide(400);
+			$('.active.cart-section').removeClass('active');
+			$(this).addClass('active');
+			$(this).next().show(400);
+		}
+	});
+}	
+
+function showHideAddressField(id){
+	if(id.attr('id') === 'pickup') {
+		$('#customerAddress').addClass('hidden');
+		$('#customerAddress').next().addClass('hidden');
+		$('#customerAddress').next().next().addClass('hidden'); /*hiding br-tags*/
+		$('#customerAddress').required = false;
+	} else if (id.attr('id') !=='pickup')	{
+		$('#customerAddress').removeClass('hidden');
+		$('#customerAddress').next().removeClass('hidden');
+		$('#customerAddress').next().next().removeClass('hidden'); /*showing br-tags*/
+		$('#customerAddress').required = true;
+	}
+}

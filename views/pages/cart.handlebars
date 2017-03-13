@@ -1,6 +1,6 @@
 <p style='font-size: 21pt; margin-left: 20px;' id='cartTitle' >Корзина</p>
 <form id="cartForm" class='col-md-9' action="/makeorder" method="post" style="margin-left: 5%;">
-<h3 class='active'>Покупки</h3>
+<h3 class='active cart-section'>Покупки</h3>
 <div class="form-group cart-group">
 	<table>
 		{{#each product}}
@@ -37,13 +37,13 @@
 	</table>	
 	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
 </div>
-<h3>Доставка</h3>
+<h3 class='cart-section'>Доставка</h3>
 <div class="form-group delivery-group" style='display: none;'>
-	<input type="radio" id="fedex" name="fedex" value='fedex' checked>
+	<input type="radio" id="fedex" name="fedex" value='fedex' checked onchange='showHideAddressField($(this));'>
 	<label for="fedex">Курьерская доставка</label><br>
-	<input type="radio" id="post" value='post' name="fedex">
+	<input type="radio" id="post" value='post' name="fedex" onchange='showHideAddressField($(this));'>
 	<label for="post">Отправка почтой РФ</label><br>
-	<input type="radio" id="pickup" value='pickup' name="fedex">
+	<input type="radio" id="pickup" value='pickup' name="fedex" onchange='showHideAddressField($(this));'>
 	<label for="pickup">Самовывоз</label><br>
 	<a href="#" onclick="glavpunkt.openMap(selectPunkt); return false;">Выбрать пункт выдачи на карте</a> 
 	<textarea name="" id="selectedPunkt" cols="50" rows="4" style="border: 1px solid #999;margin-top: 10px; display: none;" readonly>
@@ -52,7 +52,7 @@
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
 	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
  </div>
-<h3>Личные данные</h3>
+<h3 class='cart-section'>Личные данные</h3>
  <div class="form-group info-group" style='display: none;'>
 	<input name="name" id='customerName' type="text" placeholder="Введите имя" required><br><br>
 	<input name="email" id='customerEmail' type="email" placeholder="Введите email" required><br><br>
