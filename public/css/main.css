@@ -261,7 +261,9 @@ p {
 .productInCartPrice {
 	white-space: nowrap;
 }
-
+.cartTable {
+	max-width: 600px;
+}
 .cart-section:hover {
 	cursor: pointer;
 }

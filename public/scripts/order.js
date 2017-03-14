@@ -3,6 +3,7 @@ $(document).ready(function(){
 	orderArchive();
 	orderDeleted();
 	backToOrders();
+	searchClient();
 });
 
 function getOrders(){
@@ -139,5 +140,26 @@ function backToOrders(){
 		$('#orderDeleted').removeClass('hidden');
 		getOrders();
 		return false;
+	});
+}
+
+function searchClient(){
+	$('.searchClient').on('change', function(){
+		var client = $('.searchClient').val();
+		if (client !==''){
+			var query = '/admin/searchclient?client=' + client;
+			$.ajax({
+				url: query,
+				dataType: 'html',
+				success: function(data) {
+					$('#orderList').empty();
+					$('#orderList').append(data);
+					$('#orderDeleted').addClass('hidden');
+					$('#orderArchive').addClass('hidden');
+					$('#backToOrders').removeClass('hidden');
+					showInfo();
+				}
+			});
+		}
 	});
 }

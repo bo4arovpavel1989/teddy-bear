@@ -15,7 +15,7 @@
 	</p>
 	<div class='orderInfo hidden'>
 		{{#each product}}
-			<p><b class='greenLink'>{{name}}</b> - {{howMany}} шт. - по {{price}} руб.</p>
+			<p><img src={{image_micro_thumb}}><a href='/products/{{address}}'><b class='greenLink'>{{name}}</b></a> - {{howMany}} шт. - по {{price}} руб.</p>
 		{{/each}}
 		<div class='totalPrice'><b>Итого</b>: {{totalPrice}} руб.</div>
 		<p><b>эл. почта</b>: {{email}}</p>
