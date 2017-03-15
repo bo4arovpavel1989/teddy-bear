@@ -1,12 +1,16 @@
 @font-face {
 	font-family: TTDrugs-Thin;
-	src: local('Drugs.otf'), url(fonts/Drugs.otf);
+	src: local('Drugs.otf'), url(fonts/Drugs.otf), 
+	local('Drugs'), url('fonts/drugs.woff2') format('woff2'), 
+	url('fonts/drugs.woff') format('woff'), url('fonts/drugs.ttf') format('truetype');;
 	font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: Myriad-pro;
-	src: local('myriad-pro.otf'), url(fonts/myriad-pro.otf);
+	src: local('myriad-pro.otf'), url(fonts/myriad-pro.otf), url("fonts/myriad-pro.eot?#iefix")format("embedded-opentype"),
+    url("fonts/myriad-pro.woff") format("woff"),
+    url("fonts/myriad-pro.ttf") format("truetype");;
 	font-weight: normal;
     font-style: normal;
 }
@@ -232,7 +236,8 @@ p {
 
 .btn-toCartButton {
 	color: white;
-	background: -webkit-gradient(linear, left top, left bottom, from(#62DA00), to(#32A900));
+	background: linear-gradient(to bottom right, #62DA00, #32A900);
+	background: -moz-linear-gradient(center top , #62DA00, #32A900) repeat scroll 0% 0% transparent;
 	width: 100%;
 	border-radius: 1px 1px 10px 10px;
 }
@@ -263,11 +268,21 @@ p {
 }
 .cartTable {
 	max-width: 600px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
+
+.totalPriceLine{
+	border-top: 3px solid rgb(212, 212, 212);
+}
+
 .cart-section:hover {
 	cursor: pointer;
 }
-
+.delivery-group, .info-group {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 .hidden {
 	display: none;
 }

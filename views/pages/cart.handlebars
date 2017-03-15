@@ -29,19 +29,19 @@
 	</tr>
 	{{/each}}
 	<tr>
-	</tr>
-	<tr>
+	<tr class='totalPriceLine'>
 	<td></td>
-	<td>Итого</td>
+	<td></td>
+	<td><b>Итого</b></td>
 	<td id='totalPrice' colspan="2"></td>
-	<tr>
+	</tr>
 	</tbody>
 	</table>	
-	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
+	<a href='#' class='btn btn-info nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
 </div>
 <h3 class='cart-section'>Доставка</h3>
 <div class="form-group delivery-group" style='display: none;'>
-	<input type="radio" id="fedex" name="Курьер" value='fedex' checked onchange='showHideAddressField($(this));'>
+	<input type="radio" id="fedex" name="fedex" value='Курьер' onchange='showHideAddressField($(this));' checked>
 	<label for="fedex">Курьерская доставка</label><br>
 	<input type="radio" id="post" value='Почта' name="fedex" onchange='showHideAddressField($(this));'>
 	<label for="post">Отправка почтой РФ</label><br>
@@ -52,7 +52,7 @@
 	</textarea>
 	<br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
-	<a href='#' class='btn btn-default nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
+	<a href='#' class='btn btn-info nextSection' onclick='openNextSection($(this)); return false;'>Далее</a>
  </div>
 <h3 class='cart-section'>Личные данные</h3>
  <div class="form-group info-group" style='display: none;'>
@@ -62,7 +62,7 @@
 	<input name="address" id='customerAddress' type="text" placeholder="Введите адрес"><br><br>
 	<textarea name="comment" id='customerComment' placeholder="Комментарий"></textarea><br><br>
 	<a href='#' class='btn btn-default nextSection' onclick='openPrevSection($(this)); return false;'>Назад</a>
-	<input class="btn btn-primary" type="submit" id='makeOrder' value="Оформить заказ"></input>
+	<input class="btn btn-success" type="submit" id='makeOrder' value="Оформить заказ"></input>
  </div>
 </form>
 <script src='/scripts/cart.js'></script>
