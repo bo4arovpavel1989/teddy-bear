@@ -268,8 +268,6 @@ p {
 }
 .cartTable {
 	max-width: 600px;
-	margin-top: 50px;
-	margin-bottom: 50px;
 }
 
 .totalPriceLine{
@@ -279,7 +277,7 @@ p {
 .cart-section:hover {
 	cursor: pointer;
 }
-.delivery-group, .info-group {
+.cart-group, .delivery-group, .info-group {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }

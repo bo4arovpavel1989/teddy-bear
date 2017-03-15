@@ -14,6 +14,7 @@ function getAddSpecialPropFormForProduct() {
 				$('#addSpecialPropFormPlace').empty();
 				$('#addSpecialPropFormPlace').append(html);
 				$('#addSpecialPropFormPlace').toggleClass('hidden');
+				specialPropFormForProductSubmit();
 			}
 		});
 	});
@@ -29,6 +30,7 @@ function getAddSpecialPropFormForCategory() {
 				$('#addSpecialPropFormPlace').empty();
 				$('#addSpecialPropFormPlace').append(html);
 				$('#addSpecialPropFormPlace').toggleClass('hidden');
+				specialPropFormForCategorySubmit();
 			}
 		});
 	});
@@ -61,5 +63,43 @@ function deleteSpecialProp(){
 				}
 			});
 		}
+	});
+}
+
+function specialPropFormForProductSubmit() {
+	$('#addSpecialPropForProduct').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+					$('#addSpecialPropFormPlace').toggleClass('hidden');
+					getSpecialPropsList();
+				}
+		});
+	});
+}
+
+function specialPropFormForCategorySubmit() {
+	$('#addSpecialPropForCategory').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+					$('#addSpecialPropFormPlace').toggleClass('hidden');
+					getSpecialPropsList();
+				}
+		});
 	});
 }
