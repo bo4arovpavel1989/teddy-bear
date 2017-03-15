@@ -82,7 +82,6 @@ function cartSubmit() {
 		data.phone = $('#customerPhone').val();
 		data.address = $('#customerAddress').val();
 		data.comment = $('#customerComment').val();
-		console.log(data);
 		$.ajax({
         type: "POST",
         url: "/makeorder",
