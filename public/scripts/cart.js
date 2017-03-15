@@ -74,14 +74,15 @@ function cartSubmit() {
 			productCount++;
 		});
 		data.fedex = $('input[name="fedex"]:checked').val();
-		if (data.fedex === "Самовывоз") data.outpost = $('#selectedPunkt').val();
+		console.log(data.fedex);
+		if (data.fedex == "Самовывоз") data.outpost = $('#selectedPunkt').val();
 		data.productCount = productCount;
 		data.name = $('#customerName').val(); 
 		data.email = $('#customerEmail').val();
 		data.phone = $('#customerPhone').val();
 		data.address = $('#customerAddress').val();
 		data.comment = $('#customerComment').val();
-		
+		console.log(data);
 		$.ajax({
         type: "POST",
         url: "/makeorder",
@@ -93,7 +94,6 @@ function cartSubmit() {
 			location.assign('/');
 		}
   });
-		console.log(data);
 	});
 }
 
