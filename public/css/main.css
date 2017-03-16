@@ -187,9 +187,6 @@ p {
 	color: black;
 }
 
-.round {
-	 border-radius: 100px;
-}
 
 
 .active {
@@ -313,4 +310,9 @@ p {
 
 tr {
 	margin-top: 20px;
+}
+
+.text > p {
+	text-indent: 1.5em; 
+    text-align: justify; 
 }

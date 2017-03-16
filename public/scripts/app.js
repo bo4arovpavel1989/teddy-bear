@@ -136,8 +136,20 @@ function categoryChoose() {
 function addToCart(){
 	$('.btn-toCartButton').on('click', function(){
 		var productId = $(this).data('id');
+		var target=$(this).data('target');
 		setCookie('cart', productId, {expires: 3600 * 24});
 		checkCart();
+		$("#" + target)  
+              .clone()  
+              .css({'position' : 'absolute', 'z-index' : '999', top: $(this).offset().top-300, left:$(this).offset().left-100})  
+              .appendTo('body')  
+              .animate({opacity: 0.5,   
+                            left:  $("#cart").offset()['left'], 
+							top: $("#cart").offset()['top'],
+                            width: 50,   
+                            height: 50}, 500, function() {  
+                    $(this).remove();  
+        });  
 	});
 }
 
