@@ -10,20 +10,24 @@
 выбрать способ доставки и оставить ваши контактные данные для того чтобы с вами связаться для подтверждения заказа. </li>
 <br><br>
 
-<li> Позвонить по телефону <b class='active'>8-950-00-99-33-7</b> и так же оформить заказ продиктовав менеджеру что вы желаете заказать. </li>
+<li> Позвонить по телефону <a href="tel:89500099337"><b class='active'>8-950-00-99-33-7</b></a> и так же оформить заказ продиктовав менеджеру что вы желаете заказать. </li>
 <br><br>
 
-<li> На нашем сайте <a href='/'>zakaz-teddy.ru</a> вы также можете оставить заявку на <b class='active'>обратный звонок</b>, 
+<li> На нашем сайте вы также можете оставить заявку на <b class='active'>обратный звонок</b>, 
 нажав <a  href='#' onclick='jumpToCallbackButton(); return false;'><b class='active'>кнопку розового цвета</b></a> в верхнем правом углу и написав там свой номер телефона. 
 Вам перезвонит менеджер в указанное вами время и ответит на все вопросы и поможет оформить заказ. </li>
 <br><br>
 
-<li> Написать на электронную почту <b class='active'>zakaz-teddy@mail.ru</b></li>
+<li> Написать на электронную почту <a href="mailto:zakaz-teddy@mail.ru"><b class='active'>zakaz-teddy@mail.ru</b></a></li>
 </ol>
 </div>
 <script>
 	function jumpToCallbackButton() {
 		var cbButton = document.getElementById("phoneNumber");
 		cbButton.scrollIntoView(true);
+		for (var blink =0; blink<3; blink++) {
+			$('.orderCallback').animate({opacity: 0.5}, 600);
+			$('.orderCallback').animate({opacity: 1}, 600);
+		}
 	}
 </script>

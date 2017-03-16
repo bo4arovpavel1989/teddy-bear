@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var cartTitle = document.getElementById("cartTitle");
 	cartTitle.scrollIntoView(true);
 	switchCartSection();
+	clearCart();
 });
 
 function openPrevSection(button){
@@ -119,4 +120,12 @@ function showHideAddressField(id){
 		$('#customerAddress').next().next().removeClass('hidden'); /*showing br-tags*/
 		$('#customerAddress').required = true;
 	}
+}
+
+function clearCart(){
+	$('#clearCart').on('click', function(e){
+		e.preventDefault();
+		deleteCookie('cart');
+		location.assign('/');;
+	});
 }
