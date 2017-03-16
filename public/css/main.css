@@ -25,6 +25,26 @@ body {
 	color: black;
 }
 
+.flag {
+  background-color: red;
+  width: 10px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  left: 20px;
+  top: -30px;
+}
+.flag::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+}
 .container {
 	padding: 0 !important;
 }
@@ -166,6 +186,11 @@ p {
 #cartLink{
 	color: black;
 }
+
+.round {
+	 border-radius: 100px;
+}
+
 
 .active {
 	color: #d31558 !important;

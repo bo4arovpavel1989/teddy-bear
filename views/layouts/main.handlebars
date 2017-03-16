@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="//glavpunkt.ru/js/punkts-widget/glavpunkt.js"> </script> 
 </head>
 <body>
+<div class="flag" id='adminBookmark' style='display: none;'></div>
 <div class='container'>
 	<div class='row'>
 		<div class='col-md-4 text-center hidden-sm hidden-xs'>
@@ -98,7 +99,7 @@
 		<div class='categoriesList'>
 			<ul class='nav nav-sidebar'>
 			{{#each category}}
-				 <li><a href="#" class='categoryChoose'>{{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
+				 <li><a href="#" class='categoryChoose'><img src={{image_micro_thumb}} class='round'> &ensp; {{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
 					<ul class="dropdown-subcategory" style='display: none;'>
 						{{#each this.subcategory}}
 							<li><a href="/subcategory/{{../_id}}/{{id}}" class='subcategoryChoose'>{{name}}</a></li>
@@ -117,6 +118,8 @@
 </div>
 <script src="/api/bootstrap.min.js"></script>
 <script src='/scripts/app.js'></script>
+<link  href="/api/jquery.fancybox.min.css" rel="stylesheet">
+<script src="/api/jquery.fancybox.min.js"></script>
 </body>
 <footer class='footer' id='footer'>
 	<div class='text-center' >© 2011-2017 - Интернет-магазин мягких игрушек ведущих мировых брендов <b class='active'>Carte Blanche 

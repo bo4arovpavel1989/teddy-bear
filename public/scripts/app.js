@@ -8,6 +8,7 @@ $(document).ready(function(){
 	categoryChoose();
 	addToCart();
 	checkCart();
+	checkAdmin();
 });
 
 function checkCart() {
@@ -181,4 +182,14 @@ function deleteCookie(name) {
   setCookie(name, "", {
     expires: -1
   })
+}
+
+function checkAdmin(){
+	var login = getCookie('login');
+	if(login === 'admin') {
+		$('#adminBookmark').show();
+		$('#adminBookmark').on('click', function(){
+			location.assign('/admin');
+		});
+	}
 }
