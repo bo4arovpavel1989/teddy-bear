@@ -11,7 +11,12 @@
 	{{#if isActive}}
 	<a href='#' title='Заказ отработан' class='markDoneOrder brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-eject'/></a>
 	{{/if}}
+	{{#unless deletedOne}}
 	<a href='#' title='Удалить' class='deleteOrder redLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a>
+	{{/unless}}
+	{{#if deletedOne}}
+	<a href='#' title='Удалить совсем' class='deleteOrderPermanently brownLink commandLink' data-id='{{_id}}'><span class='glyphicon glyphicon-trash'/></a>
+	{{/if}}
 	</p>
 	<div class='orderInfo hidden'>
 		{{#each product}}

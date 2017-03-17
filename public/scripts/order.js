@@ -1,9 +1,12 @@
+var archivePage = 0;
+
 $(document).ready(function(){
 	getOrders();
 	orderArchive();
 	orderDeleted();
 	backToOrders();
 	searchClient();
+	searchOrderByDate();
 });
 
 function getOrders(){
@@ -17,6 +20,7 @@ function getOrders(){
 			orderToWork();
 			doneOrder();
 			deleteOrder();
+			$('#moreOrders').addClass('hidden');
 		}
 	});
 }
@@ -85,6 +89,7 @@ function deleteOrder(){
 										$('#orderList').append(data);
 										showInfo();
 										deleteOrder();
+										deleteOrderPermanently();
 								}
 							});
 						else getOrders();
@@ -93,6 +98,37 @@ function deleteOrder(){
 			}
 		}
 		return false;
+	});
+}
+
+function deleteOrderPermanently(){
+	$('.deleteOrderPermanently').on('click', function(e){
+		e.preventDefault();
+		var answer = confirm('Уверен?');
+		if (answer) {
+			var answer2 = confirm(' Точно уверен?');
+			if (answer2) {
+				var orderId = $(this).data('id');
+				var query='/admin/deleteorderpermanently?order=' + orderId;
+				$.ajax({
+						url: query,
+						type: 'delete',
+						dataType: 'html',
+						success: function(){
+									$.ajax({
+										url: '/admin/getorderdeleted',
+										dataType: 'html',
+										success: function(data) {
+											$('#orderList').empty();
+											$('#orderList').append(data);
+											showInfo();
+											deleteOrderPermanently();
+										}
+									});	
+								}
+				});
+			}	
+		}
 	});
 }
 
@@ -109,9 +145,28 @@ function orderArchive(){
 				$('#orderList').append(data);
 				showInfo();
 				deleteOrder();
+				$('#moreOrders').removeClass('hidden');
+				moreOrderArchive();
 			}
 		});
 		return false;
+	});
+}
+
+function moreOrderArchive(){
+	$('#moreOrders').on('click', function(e){
+		e.preventDefault();
+		archivePage++;
+		var query='/admin/getmoreorderarchive?page=' + archivePage;
+		$.ajax({
+			url: query,
+			dataType: 'html',
+			success: function(data) {
+				$('#orderList').append(data);
+				showInfo();
+				deleteOrder();
+			}
+		});
 	});
 }
 
@@ -127,6 +182,7 @@ function orderDeleted(){
 				$('#orderList').empty();
 				$('#orderList').append(data);
 				showInfo();
+				deleteOrderPermanently();
 			}
 		});
 		return false;
@@ -157,9 +213,35 @@ function searchClient(){
 					$('#orderDeleted').addClass('hidden');
 					$('#orderArchive').addClass('hidden');
 					$('#backToOrders').removeClass('hidden');
+					$('#moreOrders').addClass('hidden');
 					showInfo();
 				}
 			});
 		}
+	});
+}
+
+function searchOrderByDate() {
+	$('#searchOrderByDate').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(formData);
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(data){
+						$('#orderList').empty();
+						$('#orderList').append(data);
+						$('#orderDeleted').addClass('hidden');
+						$('#orderArchive').addClass('hidden');
+						$('#backToOrders').removeClass('hidden');
+						$('#moreOrders').addClass('hidden');
+						showInfo();
+				}
+		});
 	});
 }
