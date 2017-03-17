@@ -9,6 +9,7 @@ $(document).ready(function(){
 	addToCart();
 	checkCart();
 	checkAdmin();
+	forEachForIe();
 });
 
 function checkCart() {
@@ -203,5 +204,15 @@ function checkAdmin(){
 		$('#adminBookmark').on('click', function(){
 			location.assign('/admin');
 		});
+	}
+}
+
+function forEachForIe(){ /*adding Array method forEach for Internet Explorer*/
+	if (typeof Array.prototype.forEach != 'function') {
+		Array.prototype.forEach = function(callback){
+		  for (var i = 0; i < this.length; i++){
+			callback.apply(this, [this[i], i, this]);
+		  }
+		};
 	}
 }

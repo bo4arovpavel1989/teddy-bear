@@ -1,4 +1,5 @@
 ﻿$(document).ready(function(){
+	forEachForIe();
 	$(".tab").click(function(){ /*переключение вкладок*/
 		var clickedTab = $(this);
 		if (!$(this).parent().hasClass('active')) {
@@ -17,7 +18,17 @@
 		}			
 	});
 
-});				
+});			
+
+function forEachForIe(){ /*adding Array method forEach for Internet Explorer*/
+	if (typeof Array.prototype.forEach != 'function') {
+		Array.prototype.forEach = function(callback){
+		  for (var i = 0; i < this.length; i++){
+			callback.apply(this, [this[i], i, this]);
+		  }
+		};
+	}
+}	
 
 		
 
