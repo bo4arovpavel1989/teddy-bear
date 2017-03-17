@@ -1,8 +1,39 @@
+var filter='';
+
 $(document).ready(function(){
+	getCategoryFilter();
 	getProductAddForm();
 	getProductsList();
 });
 
+
+function getCategoryFilter(){
+	$.ajax({
+		url: '/admin/getcategoryfilter',
+		dataType: 'html',
+		success: function(html){
+			$('#categoryFilterPlace').append(html);
+			useCategoryFilter();
+		}
+	});
+}
+
+function useCategoryFilter() {
+	$('#categoryFilterForm').on('submit', function(e){
+		e.preventDefault();
+		filter='';
+		var checkBoxes = document.getElementsByName('categoryFilter');
+		var counter = 0;
+		checkBoxes.forEach(function(checkBox){
+			if(checkBox.checked == true) {
+				filter += '&category' + counter + '=' + checkBox.value;
+				counter++;
+			}
+		});
+		filter += '&counter=' + counter;
+		getProductsList();
+	});
+}
 
 function getProductAddForm(){
 	$.ajax({
@@ -73,6 +104,8 @@ function closeForm() {
 
 function getProductsList() {
 	var query = '/admin/getproductslist';
+	if (filter !== '') query += '?';
+	query += filter;
 		$.ajax({
 			url: query,
 			dataType: 'html',
@@ -153,7 +186,8 @@ function showReplenishmentForm() {
 }
 
 function makeHit() {
-	$('.makeHit').on('click', function(){
+	$('.makeHit').on('click', function(e){
+		e.preventDefault();
 		var that = $(this);
 		var product = $(this).data('id');
 		var query = '/admin/makehit?product=' + product;
