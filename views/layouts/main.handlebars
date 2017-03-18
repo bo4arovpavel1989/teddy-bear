@@ -101,7 +101,7 @@
 		<div class='categoriesList'>
 			<ul class='nav nav-sidebar'>
 			{{#each category}}
-				 <li><a href="#" class='categoryChoose'><img src={{image_micro_thumb}} class='round'> &ensp; {{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
+				 <li><a href="#" class='categoryChoose'><img src='{{image_micro_thumb}}'> &ensp; {{name}} <span style='float: right; top: 10px;' class="glyphicon glyphicon-menu-down"></span></a>
 					<ul class="dropdown-subcategory" style='display: none;'>
 						{{#each this.subcategory}}
 							<li><a href="/subcategory/{{../_id}}/{{id}}" class='subcategoryChoose'>{{name}}</a></li>

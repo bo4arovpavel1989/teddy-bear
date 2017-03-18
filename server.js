@@ -3,7 +3,7 @@ var Admin=require('./lib/models/mongoModel.js').Admin;
 var login = secret.login;
 var loginUpperCase = login.toUpperCase();
 var passwd = secret.passwd;
-var administrator = new Admin({login: login, loginUpperCase: loginUpperCase, passwd: passwd, session: '0'}).save();
+//var administrator = new Admin({login: login, loginUpperCase: loginUpperCase, passwd: passwd, session: '0'}).save();
 
 var express = require('express');
 var cookieParser = require('cookie-parser');

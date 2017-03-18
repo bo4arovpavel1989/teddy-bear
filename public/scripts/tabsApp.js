@@ -1,6 +1,8 @@
 ﻿$(document).ready(function(){
 	forEachForIe();
+	getNewOrdersQuantity();
 	$(".tab").click(function(){ /*переключение вкладок*/
+		getNewOrdersQuantity();
 		var clickedTab = $(this);
 		if (!$(this).parent().hasClass('active')) {
 			$('.active').removeClass("active");
@@ -30,5 +32,16 @@ function forEachForIe(){ /*adding Array method forEach for Internet Explorer*/
 	}
 }	
 
+function getNewOrdersQuantity(){
+	$.ajax({
+		url: '/admin/getnewordersquantity',
+		success: function(data){
+			$('#ordersQuantity').empty();
+			$('#callsQuantity').empty();
+			if(data.newOrders > 0) $('#ordersQuantity').append(' (' + data.newOrders + ')');
+			if(data.newCalls > 0) $('#callsQuantity').append(' (' + data.newCalls + ')');
+		}
+	});
+}
 		
 

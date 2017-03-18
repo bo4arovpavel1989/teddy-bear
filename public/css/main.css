@@ -121,12 +121,18 @@ p {
 
 .navbar-default {
 	background-color: #f5f5f5;
+	border: 2px solid;
 	border-color: #eec8d6;
 	opacity: 1 !important;
 	border-left: 0;
 	border-right: 0;
 	z-index: 100 !important;
 }
+
+.navbar {
+	   
+}
+
 .nav-tabs>li>a {
 	border: 0;
 }
