@@ -14,6 +14,11 @@
 {{#if product.videoURL}}
 {{{product.videoURL}}}
 {{/if}}
+{{#each product.gallery}}
+<a data-fancybox="gallery" href="{{image}}">
+	<img src='{{thumb_image}}' style='width: 100px; height: 100px;'>
+</a>	
+{{/each}}
 </div>
 
 </div>

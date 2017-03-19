@@ -117,6 +117,8 @@ function getProductsList() {
 				showReplenishmentForm();
 				makeHit();
 				replenishmentFormSubmit();
+				showGalleryForm();
+				galleryFormSubmit();
 			}
 		});
 }
@@ -180,7 +182,8 @@ function changeProductSubmit(){
 }
 
 function showReplenishmentForm() {
-	$('.replenishment').on('click', function(){
+	$('.replenishment').on('click', function(e){
+		e.preventDefault();
 		$(this).parent().parent().next().toggleClass('hidden');
 	});
 }
@@ -203,25 +206,48 @@ function makeHit() {
 
 function replenishmentFormSubmit(){
 	$('.replenishmentForm').on('submit', function(e){
-			e.preventDefault();
-			var $that = $(this);
-			var formData = new FormData($that.get(0));
-			console.log(1);
-			$.ajax({
-				url: $that.attr('action'),
-				type: $that.attr('method'),
-				contentType: false,
-				processData: false,
-				data: formData,
-				success: function(){
-						getProductsList();
-				}
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		console.log(1);
+		$.ajax({
+			url: $that.attr('action'),
+			type: $that.attr('method'),
+			contentType: false,
+			processData: false,
+			data: formData,
+			success: function(){
+					getProductsList();
+			}
 		});
 	});
 }
 
+function showGalleryForm(){
+	$('.gallery').on('click', function(e){
+		e.preventDefault();
+		$(this).parent().parent().next().next().toggleClass('hidden');
+	});
+}
 
-
+function galleryFormSubmit(){
+	$('.galleryForm').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		$.ajax({
+			url: $that.attr('action'),
+			type: $that.attr('method'),
+			contentType: false,
+			processData: false,
+			data: formData,
+			success: function(){
+					getProductsList();
+			}
+		});
+	});
+	return false;
+}
 
 
 
