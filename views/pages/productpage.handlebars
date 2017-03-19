@@ -1,5 +1,19 @@
-<p style='font-size: 21pt; margin-left: 20px;'>{{product.name}}</p>
+<div class='productTitleLinks'>
+<a href='#' class='goBack' style='color: grey;'>вернуться назад |</a>
+<a href='/category/{{product.category.id}}' style='color: grey;'>{{product.category.name}}/</a>
+<a href='/subcategory/{{product.category.id}}/{{product.subcategory.id}}' style='color: grey;'>{{product.subcategory.name}}</a>
+</div>
 <div class='row'>
+{{#if product.gallery}}
+<div class="col-md-1 hidden-sm hidden-xs">
+{{#each product.gallery}}
+<a data-fancybox="gallery" href="{{image}}">
+	<img src='{{thumb_image}}' class='galleryItem' style='width: 59px; height: 59px;'>
+	<a href='#' class='deleteImage redLink hidden' data-id={{../product._id}} data-image={{image}}><span class='glyphicon glyphicon-trash'/></a></a><br>
+</a>	
+{{/each}}
+</div>
+{{/if}}
 <div class="col-md-6">
 <div>
 <a data-fancybox="gallery" href="{{product.image}}">
@@ -7,18 +21,63 @@
 </a>
 </div>
 </div>
-<div class="col-md-6">
-<p>{{product.description}}</p>
-<p>{{product.price}}</p>
-<p>{{product.code}}</p>
+<div class="col-md-5">
+<p style='font-size: 20pt; margin-bottom: 50px; color: black;'><b>{{product.name}}</b></p>
+	{{#unless product.isSpecialProp}}
+				<div style='margin-bottom: 50px;'>
+					<p style='color: grey;'>{{product.price}},00 руб.</p>
+				</div>
+				{{else}}
+				<div style='margin-bottom: 50px;'>
+					<div class='discountOldPrice'>{{product.price}},00 </div> <div style='color: grey; display: inline;'>{{product.discount}},00 руб.</div>	
+				</div>
+				{{/unless}}
+				<div class='toCartButton' style='margin-bottom: 50px;'>
+					<button class='btn btn-toCartButton' style='width: 100px; !important; border-radius: 0 !important;' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
+				</div>
+</div>
+</div>
+<div class='row'>
+<p style='margin-bottom: 50px; margin-top: 20px;'>код товара: {{product.code}}</p>
+<p style='margin-bottom: 50px;'>
 {{#if product.videoURL}}
 {{{product.videoURL}}}
 {{/if}}
-{{#each product.gallery}}
-<a data-fancybox="gallery" href="{{image}}">
-	<img src='{{thumb_image}}' style='width: 100px; height: 100px;'>
-</a>	
-{{/each}}
+</p>
+<p>{{product.description}}</p>
 </div>
+<script>
+$(document).ready(function(){
+	if(loggedIn) {
+		$('.deleteImage').each(function(){
+			$(this).removeClass('hidden');
+		});
+		deleteImage();
+	}
+	goBack();
+});
+function goBack(){
+	$('.goBack').on('click', function(e){
+		e.preventDefault();
+		history.back();
+	});
+}
 
-</div>
+function deleteImage(){
+	$('.deleteImage').on('click', function(e){
+		e.preventDefault();
+		var answer=confirm('Уверен?');
+		var image = $(this).data('image');
+		var product = $(this).data('id');
+		var query='/admin/deleteimage?image=' + image + '&product=' + product;
+		if (answer)
+		$.ajax({
+			url: query,
+			type: 'delete',
+			success: function(){
+				location.reload();
+			}
+		});
+	});
+}
+</script>

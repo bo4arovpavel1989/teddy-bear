@@ -1,6 +1,8 @@
 var searchAvailable = true;
+var loggedIn = false;
 
 $(document).ready(function(){
+	checkAdmin();
 	getCallbackForm();
 	menuSticky();
 	searchProductRealtime();
@@ -8,7 +10,6 @@ $(document).ready(function(){
 	categoryChoose();
 	addToCart();
 	checkCart();
-	checkAdmin();
 	forEachForIe();
 });
 
@@ -138,9 +139,11 @@ function addToCart(){
 	$('.btn-toCartButton').on('click', function(){
 		var productId = $(this).data('id');
 		var target=$(this).data('target');
-		setCookie('cart', productId, {expires: 3600 * 24});
+		setCookie('cart', productId, {expires: 3600 * 24, path: '/'});
 		checkCart();
-		$("#" + target)  
+		var target='#' + target;
+		console.log(target);
+		$(target)  
               .clone()  
               .css({'position' : 'absolute', 'z-index' : '999', top: $(this).offset().top-300, left:$(this).offset().left-100})  
               .appendTo('body')  
@@ -163,7 +166,7 @@ function getCookie(name) {
 
 function setCookie(name, value, options) {
   options = options || {};
-
+  //options.path = '/';
   var expires = options.expires;
 
   if (typeof expires == "number" && expires) {
@@ -201,6 +204,7 @@ function checkAdmin(){
 	var login = getCookie('login');
 	if(login === 'admin') {
 		$('#adminBookmark').show();
+		loggedIn = true;
 		$('#adminBookmark').on('click', function(){
 			location.assign('/admin');
 		});

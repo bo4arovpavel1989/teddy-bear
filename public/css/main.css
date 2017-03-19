@@ -284,6 +284,22 @@ p {
 .brownLink {
 	color: brown;
 }
+.productTitleLinks{
+	margin-left: 30px;
+	margin-bottom: 50px;
+	font-size: 15pt;
+}
+.galleryItem{
+	margin-bottom: 1px !important;
+	margin-bottom: 1px !important;
+}
+
+.deleteImage {
+	position: relative;
+	left: -20px;
+	top: -30px;
+	margin: 0;
+}
 
 .productHowMany {
 	text-align: center;
