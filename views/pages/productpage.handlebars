@@ -8,18 +8,20 @@
 <div class="col-md-1 hidden-sm hidden-xs">
 {{#each product.gallery}}
 <a data-fancybox="gallery" href="{{image}}">
-	<img src='{{thumb_image}}' class='galleryItem' style='width: 79px; height: 79px;'>
-	<a href='#' class='deleteImage redLink hidden' data-id='{{../product._id}}' data-image='{{image}}' data-image_thumb='{{thumb_image}}'><span class='glyphicon glyphicon-trash'/></a></a><br>
-</a>	
+	<img src='{{thumb_image}}' class='galleryItem' style='width: 59px; height: 59px;'>
+</a>
+<a href='#' class='deleteImage redLink hidden' data-id='{{../product._id}}' data-image='{{image}}' data-image_thumb='{{thumb_image}}'>
+	<span class='glyphicon glyphicon-trash'/>
+</a><br>	
 {{/each}}
 </div>
 {{/if}}
-<div class="col-md-6 text-center">
+<div class="col-md-5 text-center">
 <a data-fancybox="gallery" href="{{product.image}}">
-    <img src="{{product.image}}" id='{{product.address}}' style='width: 400px; height: 400px;'>
+    <img src="{{product.image}}" id='{{product.address}}' style='width: 300px; height: 300px;'>
 </a>
 </div>
-<div class="col-md-5">
+<div class="col-md-6">
 <p style='font-size: 20pt; margin-bottom: 50px; color: black;'><b>{{product.name}}</b></p>
 	{{#unless product.isSpecialProp}}
 				<div style='margin-bottom: 50px;'>
@@ -37,7 +39,7 @@
 </div>
 <div class='row'>
 <p style='margin-bottom: 50px; margin-top: 20px; padding: 20px;'>код товара: {{product.code}}</p>
-<p style='margin-bottom: 50px; padding: 20px; width: 100%'>
+<p style='margin-bottom: 50px; padding: 20px; width: 100%; overflow: hidden;'>
 {{#if product.videoURL}}
 {{{product.videoURL}}}
 {{/if}}

@@ -93,7 +93,7 @@ p {
 .callback  {
 	margin: 0 0 0 0;
 	float: right;
-	padding-right: 0;
+	padding-right: 10px;
 	padding-left: 16%;
 	white-space: nowrap;
 }
@@ -291,7 +291,7 @@ p {
 }
 .galleryItem{
 	margin-bottom: 1px !important;
-	margin-bottom: 1px !important;
+	margin-left: 10px;
 }
 
 .deleteImage {
