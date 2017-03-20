@@ -1,5 +1,6 @@
 ﻿$(document).ready(function(){
 	forEachForIe();
+	logOut();
 	getNewOrdersQuantity();
 	$(".tab").click(function(){ /*переключение вкладок*/
 		getNewOrdersQuantity();
@@ -43,5 +44,16 @@ function getNewOrdersQuantity(){
 		}
 	});
 }
-		
+
+function logOut(){
+	$('.logOut').on('click', function(e){
+		e.preventDefault();
+		$.ajax({
+			url: '/admin/logout',
+			success: function(){
+				location.assign('/login');
+			}
+		});
+	});
+}		
 

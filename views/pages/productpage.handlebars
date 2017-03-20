@@ -41,7 +41,7 @@
 <p style='margin-bottom: 50px; margin-top: 20px; padding: 20px;'>код товара: {{product.code}}</p>
 <p style='margin-bottom: 50px; padding: 20px; width: 100%; overflow: hidden;'>
 {{#if product.videoURL}}
-{{{product.videoURL}}}
+<iframe width="300" height="176" src="{{product.videoURL}}" frameborder="0" allowfullscreen></iframe>
 {{/if}}
 </p>
 <p style='padding: 20px;'>{{product.description}}</p>
