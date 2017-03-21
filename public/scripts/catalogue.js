@@ -125,7 +125,8 @@ function getProductsList() {
 
 
 function deleteProduct() {
-	$('.deleteProduct').on('click', function(){
+	$('.deleteProduct').on('click', function(e){
+		e.preventDefault();
 		var answer = confirm('Уверен?');
 		var product = $(this).data('id');
 		if (answer) {
@@ -143,7 +144,8 @@ function deleteProduct() {
 }
 
 function changeProduct() {
-	$('.changeProduct').on('click', function(){
+	$('.changeProduct').on('click', function(e){
+		e.preventDefault();
 		var product = $(this).data('id');
 		var query = '/admin/getchangeproductform?product=' + product;
 		$.ajax({
