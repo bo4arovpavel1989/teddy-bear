@@ -1,3 +1,11 @@
+var writeLog=require('./lib/customfunctions.js').writeLog;
+
+process.on('uncaughtException', function (err) {		
+	 writeLog(err, function(){
+		 process.exit(1);
+	 });
+});
+
 var secret = require('./credentials.js');
 var Admin=require('./lib/models/mongoModel.js').Admin;
 var login = secret.login;
@@ -27,3 +35,4 @@ router(app);
 server.listen(8080);
 
 console.log('Server runs');
+

@@ -125,7 +125,10 @@ function showHideAddressField(id){
 function clearCart(){
 	$('#clearCart').on('click', function(e){
 		e.preventDefault();
-		deleteCookie('cart');
-		location.assign('/');;
+		var answer=confirm("Уверены? Ваш список покупок будет очищен и Вы будете перенаправлены на главную страницу!");
+		if(answer) {
+			deleteCookie('cart');
+			location.assign('/');
+		}
 	});
 }

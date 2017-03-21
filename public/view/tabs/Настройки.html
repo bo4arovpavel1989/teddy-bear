@@ -1,6 +1,7 @@
 <h3 class='text-center'>НАСТРОЙКИ</h3>
-<p>Изменение пароля</p>
+
 <form class='form-inline changePassword' action="/admin/changepassword" method="post" enctype="multipart/form-data">
+<p>Изменение пароля</p>
 <div class='form-group'>
 	<input type="password" class="form-control" id="inputOldPass" name='oldPass' placeholder='Старый пароль' required>
 </div>
@@ -13,8 +14,9 @@
 </div>	
 	<input class="btn" type="submit" value="Изменить" style="opacity: 1 !important;"></input>
 </form>	
-<p>Изменение почты менеджера</p>
+
 <form class='form-inline changeEmail' action="/admin/changeemail" method="post" enctype="multipart/form-data">
+<p>Изменение почты менеджера</p>
 <div class='form-group'>
 	<input type="email" class="form-control" id="inputEmail" name='email' placeholder='E-Mail' required>
 </div>

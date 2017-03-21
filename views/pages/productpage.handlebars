@@ -7,12 +7,12 @@
 {{#if product.gallery}}
 <div class="col-md-1 hidden-sm hidden-xs">
 {{#each product.gallery}}
-<a data-fancybox="gallery" href="{{image}}">
+<a data-fancybox="gallery" href="{{image}}" style='width: 59px !important; height: 59px !important;'>
 	<img src='{{thumb_image}}' class='galleryItem' style='width: 59px; height: 59px;'>
 </a>
 <a href='#' class='deleteImage redLink hidden' data-id='{{../product._id}}' data-image='{{image}}' data-image_thumb='{{thumb_image}}'>
 	<span class='glyphicon glyphicon-trash'/>
-</a><br>	
+</a>
 {{/each}}
 </div>
 {{/if}}
@@ -22,29 +22,29 @@
 </a>
 </div>
 <div class="col-md-6">
-<p style='font-size: 20pt; margin-bottom: 50px; color: black;'><b>{{product.name}}</b></p>
+<p style='font-size: 20pt; margin-bottom: 50px; color: black; padding-left: 20px;'><b>{{product.name}}</b></p>
 	{{#unless product.isSpecialProp}}
 				<div style='margin-bottom: 50px;'>
-					<p style='color: grey;'>{{product.price}},00 руб.</p>
+					<p style='color: grey; padding-left: 20px; font-size: 20pt;'>{{product.price}},00 руб.</p>
 				</div>
 				{{else}}
 				<div style='margin-bottom: 50px;'>
-					<div class='discountOldPrice'>{{product.price}},00 </div> <div style='color: grey; display: inline;'>{{product.discount}},00 руб.</div>	
+					<div class='discountOldPrice' style='padding-left: 20px; font-size: 20pt;'>{{product.price}},00 </div> <div style='color: grey; display: inline; font-size: 20pt;'>{{product.discount}},00 руб.</div>	
 				</div>
 				{{/unless}}
-				<div class='toCartButton' style='margin-bottom: 50px;'>
-					<button class='btn btn-toCartButton' style='width: 200px; !important; border-radius: 0 !important;' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
+				<div class='toCartButton' style='margin-bottom: 50px; padding-left: 20px;'>
+					<button class='btn btn-toCartButton' style='width: 200px; !important; border-radius: 0 !important; ' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
 				</div>
 </div>
 </div>
 <div class='row'>
-<p style='margin-bottom: 50px; margin-top: 20px; padding: 20px;'>код товара: {{product.code}}</p>
-<p style='margin-bottom: 50px; padding: 20px; width: 100%; overflow: hidden;'>
+<p style='padding-left: 20px;'>код товара: {{product.code}}</p>
+<p style='padding: 20px; width: 100%; overflow: hidden;'>
 {{#if product.videoURL}}
 <iframe width="300" height="176" src="{{product.videoURL}}" frameborder="0" allowfullscreen></iframe>
 {{/if}}
 </p>
-<p style='padding: 20px;'>{{product.description}}</p>
+<p style='padding-left: 20px; text-indent: 1.05em;'>{{product.description}}</p>
 </div>
 <script>
 $(document).ready(function(){

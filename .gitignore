@@ -1,6 +1,12 @@
+serverlog
 serverlog.txt
+
 /public/images/
-/public/avatars/
+
+/public/avatars
+
 dump.rdb
+
 /lib/credentials.js
+
 credentials.js

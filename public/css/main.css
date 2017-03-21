@@ -164,6 +164,17 @@ p {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+.circle{
+	float: right; 
+	top: -10px; 
+	left: -30px; 
+	position: relative;
+}
+
+.circle:hover{
+	opacity: 0.2;
+}
+
 
 .sidebar {
 	z-index: 1;
