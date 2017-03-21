@@ -1,13 +1,13 @@
+var page=0;
 $(document).ready(function(){
 	getFeedback();
+	moreFeedback();
 });
 	
 function getFeedback(){
 	$.ajax({
-		url: '/admin/getfeedback',
-		dataType: 'html',
+		url: '/admin/getfeedback?page=' + page,
 		success: function(data){
-			$('#feedBackList').empty();
 			$('#feedBackList').append(data);
 			deleteFeedback();
 		}
@@ -25,9 +25,18 @@ function deleteFeedback(){
 				url: deleteQuery,
 				type: 'delete',
 				success: function(){
+						$('#feedBackList').empty();
 						getFeedback();
 				}
 			});
 		}
+	});
+}
+
+function moreFeedback(){
+	$('.moreFeedback').on('click', function (e){
+		e.preventDefault();
+		page+=10;
+		getFeedback();
 	});
 }
