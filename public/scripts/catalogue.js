@@ -90,6 +90,7 @@ function addProductSubmit() {
 
 function showAddProductForm(){
 	$('#showAddProductForm').on('click', function(){
+		document.getElementById('addProductButton').disabled = false;
 		$('#addProductFormPlace').toggleClass('hidden');
 		$('#productsList').toggleClass('hidden');
 	});
