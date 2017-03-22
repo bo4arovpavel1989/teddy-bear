@@ -92,8 +92,10 @@ function searchProductRealtime() {
 
 function searchSuggestion() {
 	var productToFind = $('.searchProduct').val();
+	console.log(productToFind);
 	if (productToFind !== '') {
-		var query = '/searchproduct?product=' + productToFind;
+		var query = '/searchproduct?product=' + encodeURIComponent(productToFind); /*otherwise IE send wrong text(encoded)*/
+		console.log(query);
 		$.ajax({
 			url: query,
 			dataType: 'html',
@@ -109,8 +111,8 @@ function searchSuggestion() {
 }
 
 function clickSearchResutItem(){
-	$('.searchResultItem').on('click', function(){
-		var address = $(this).data('address');
+	$('#searchResult').on('change', function(){ /*made vie 'onchange' coz IE doesnt recognize otherwise*/
+		var address = $(this).val();
 		location.assign(address);
 	});
 }

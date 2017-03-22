@@ -67,6 +67,7 @@ function getSubCategories() {
 function addProductSubmit() {
 	$('#addProduct').on('submit', function(e){
 		e.preventDefault();
+		document.getElementById('addProductButton').disabled = true;
 		var $that = $(this);
 		var formData = new FormData($that.get(0));
 		console.log(formData);
@@ -165,6 +166,7 @@ function changeProduct() {
 function changeProductSubmit(){
 	$('#changeProduct').on('submit', function(e){
 		e.preventDefault();
+		document.getElementById('changeProductButton').disabled = true;
 		var $that = $(this);
 		var formData = new FormData($that.get(0));
 		console.log(formData);

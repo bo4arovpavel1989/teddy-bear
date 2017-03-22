@@ -65,6 +65,7 @@ function selectPunkt(punktInfo) {
 function cartSubmit() {
 	$('#cartForm').on('submit', function(e){
 		e.preventDefault();
+		document.getElementById('makeOrder').disabled = true; /*JQuery selector doesnt work somewhy*/
 		var data = {
 			product: [],
 			info: {}
