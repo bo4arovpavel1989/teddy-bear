@@ -275,10 +275,15 @@ p {
 
 .btn-toCartButton {
 	color: white;
-	background: linear-gradient(to bottom right, #62DA00, #32A900);
-	background: -moz-linear-gradient(center top , #62DA00, #32A900) repeat scroll 0% 0% transparent;
-	width: 100%;
-	border-radius: 1px 1px 10px 10px;
+	background-color: #d31558;
+	~background: linear-gradient(to bottom right, #62DA00, #32A900);
+	~background: -moz-linear-gradient(center top , #62DA00, #32A900) repeat scroll 0% 0% transparent;
+	width: 60%;
+	padding: 1px;
+	margin-top:  10px;
+	margin-bottom: 10px;
+	border-radius: 0;
+	~border-radius: 1px 1px 10px 10px;
 }
 
 .commandLink {
