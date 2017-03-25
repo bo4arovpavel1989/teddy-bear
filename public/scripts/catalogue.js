@@ -121,6 +121,7 @@ function getProductsList() {
 				replenishmentFormSubmit();
 				showGalleryForm();
 				galleryFormSubmit();
+				moveProductToCategory();
 			}
 		});
 }
@@ -254,5 +255,56 @@ function galleryFormSubmit(){
 	return false;
 }
 
+function moveProductToCategory(){
+	$('.moveToCategory').on('click', function(e){
+		e.preventDefault();
+		var that = $(this);
+		var product = $(this).data('id');
+		var query = '/admin/getmovetocategoryform?product=' + product;
+		$.ajax({
+			url: query,
+			success: function(data){
+				that.parent().parent().next().next().toggleClass('hidden');
+				that.parent().parent().next().next().empty();
+				that.parent().parent().next().next().append(data);
+				getSubCategoriesToMove();
+			}
+		});
+	});
+}
 
+function getSubCategoriesToMove() {
+	$('.productMoveToCategory').on('change', function(){
+		var that=$(this);
+		var category=that.val();
+		var query = '/admin/getsubcategories?category=' + category;
+		$.ajax({
+			url: query,
+			dataType: 'html',
+			success: function(html){
+				that.next().empty();
+				that.next().append(html);
+				moveProductSubmit();
+			}
+		});
+	});
+}
 
+function moveProductSubmit(){
+	$('.moveProduct').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+			$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						getProductsList();
+				}
+			});
+		
+	});	
+};
