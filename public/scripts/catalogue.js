@@ -264,9 +264,9 @@ function moveProductToCategory(){
 		$.ajax({
 			url: query,
 			success: function(data){
-				that.parent().parent().next().next().toggleClass('hidden');
-				that.parent().parent().next().next().empty();
-				that.parent().parent().next().next().append(data);
+				that.parent().parent().next().next().next().toggleClass('hidden');
+				that.parent().parent().next().next().next().find('.changeCategoryForm').empty();
+				that.parent().parent().next().next().next().find('.changeCategoryForm').append(data);
 				getSubCategoriesToMove();
 			}
 		});
