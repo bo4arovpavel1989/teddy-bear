@@ -23,18 +23,26 @@
 </div>
 <div class="col-md-6">
 <p style='font-size: 20pt; margin-bottom: 50px; color: black; padding-left: 20px;'><b>{{product.name}}</b></p>
-	{{#unless product.isSpecialProp}}
-				<div style='margin-bottom: 50px;'>
-					<p style='color: grey; padding-left: 20px; font-size: 20pt;'>{{product.price}},00 руб.</p>
-				</div>
-				{{else}}
-				<div style='margin-bottom: 50px;'>
-					<div class='discountOldPrice' style='padding-left: 20px; font-size: 20pt;'>{{product.price}},00 </div> <div style='color: grey; display: inline; font-size: 20pt;'>{{product.discount}},00 руб.</div>	
-				</div>
-				{{/unless}}
-				<div class='toCartButton' style='margin-bottom: 50px; padding-left: 20px;'>
-					<button class='btn btn-toCartButton' style='width: 200px; !important; border-radius: 0 !important; ' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
-				</div>
+				{{#gte quantity 0}}
+					{{#unless product.isSpecialProp}}
+					<div style='margin-bottom: 50px;'>
+						<p style='color: grey; padding-left: 20px; font-size: 20pt;'>{{product.price}},00 руб.</p>
+					</div>
+					{{else}}
+					<div style='margin-bottom: 50px;'>
+						<div class='discountOldPrice' style='padding-left: 20px; font-size: 20pt;'>{{product.price}},00 </div> <div style='color: grey; display: inline; font-size: 20pt;'>{{product.discount}},00 руб.</div>	
+					</div>
+					{{/unless}}
+					<div class='toCartButton' style='margin-bottom: 50px; padding-left: 20px;'>
+						<button class='btn btn-toCartButton' style='width: 200px; !important; border-radius: 0 !important; ' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
+					</div>
+				{{/gte}}
+				{{#lte quantity 0}}
+					{{#unless isSpecialProp}}
+					<div class='productPrice text-center'>
+						<p>Нет в наличии</p>
+					</div>
+				{{/lte}}	
 </div>
 </div>
 <div class='row'>

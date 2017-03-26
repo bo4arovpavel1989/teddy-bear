@@ -14,6 +14,7 @@
 				<div class='productName text-center'>
 					<a href='/products/{{address}}'  title='{{name}}'>{{name}}</a>
 				</div>
+				{{#gt quantity 0}}
 				{{#unless isSpecialProp}}
 				<div class='productPrice text-center'>
 					<p>{{price}},00 руб.</p>
@@ -26,5 +27,12 @@
 				<div class='toCartButton text-center'>
 					<button class='btn btn-toCartButton' data-id='{{_id}}' data-target='{{address}}'>В корзину</button>
 				</div>
+				{{/gt}}
+				{{#lte quantity 0}}
+					{{#unless isSpecialProp}}
+					<div class='productPrice text-center'>
+						<p>Нет в наличии</p>
+					</div>
+				{{/lte}}
 			</div>
 		{{/each}}
