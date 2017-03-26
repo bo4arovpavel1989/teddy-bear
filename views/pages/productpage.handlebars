@@ -23,7 +23,7 @@
 </div>
 <div class="col-md-6">
 <p style='font-size: 20pt; margin-bottom: 50px; color: black; padding-left: 20px;'><b>{{product.name}}</b></p>
-				{{#gte quantity 0}}
+				{{#gt quantity 0}}
 					{{#unless product.isSpecialProp}}
 					<div style='margin-bottom: 50px;'>
 						<p style='color: grey; padding-left: 20px; font-size: 20pt;'>{{product.price}},00 руб.</p>
@@ -36,7 +36,7 @@
 					<div class='toCartButton' style='margin-bottom: 50px; padding-left: 20px;'>
 						<button class='btn btn-toCartButton' style='width: 200px; !important; border-radius: 0 !important; ' data-id='{{product._id}}' data-target='{{product.address}}'>В корзину</button>
 					</div>
-				{{/gte}}
+				{{/gt}}
 				{{#lte quantity 0}}
 					<div class='productPrice text-center'>
 						<p>Нет в наличии</p>
