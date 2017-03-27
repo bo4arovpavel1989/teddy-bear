@@ -238,7 +238,7 @@ p {
 }
 
 .productPlace {
-	max-width: 257px;
+	max-width: 256px;
 	margin: 10px 0 10px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
@@ -248,6 +248,19 @@ p {
 	font-size: 10pt;
 	~border-radius: 1px 1px 10px 10px;
 }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	 .productPlace {
+		max-width: 212px !important;	
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	 .productPlace {
+		max-width: 256px;
+	}
+}
+
 
 .productPlace:hover {
     background: #f0f0f0; /* Цвет фона */
