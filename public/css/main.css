@@ -238,7 +238,6 @@ p {
 }
 
 .productPlace {
-	max-width: 256px;
 	margin: 10px 0 10px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
@@ -247,6 +246,12 @@ p {
 	text-overflow: ellipsis;
 	font-size: 10pt;
 	~border-radius: 1px 1px 10px 10px;
+}
+
+@media screen and (min-width: 768px) {
+	 .productPlace {
+		max-width: 256px;
+	}
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
