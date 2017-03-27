@@ -91,6 +91,8 @@ p {
 	height: 120px;
 }
 .callback  {
+	position: relative;
+	top: 5px;
 	margin: 0 0 0 0;
 	float: right;
 	padding-right: 10px;
@@ -232,20 +234,19 @@ p {
 
 
 .productsSpace {
-	
+	padding: 0;
 }
 
 .productPlace {
-	margin: 10px 5% 10px 10px;
+	max-width: 257px;
+	margin: 10px 0 10px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
 	background-color: white;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 10pt;
-	border-radius: 1px 1px 10px 10px;
-    border-left: 3px solid rgb(212, 212, 212);
-    border-right: 3px solid rgb(212, 212, 212);
+	~border-radius: 1px 1px 10px 10px;
 }
 
 .productPlace:hover {
@@ -264,7 +265,6 @@ p {
 }
 .productPrice {
 	font-size: 13pt;
-	background-color: #F2FCF6;
 }
 
 .discountOldPrice {
