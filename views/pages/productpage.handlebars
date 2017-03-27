@@ -38,7 +38,8 @@
 					</div>
 				{{/gt}}
 				{{#lte product.quantity 0}}
-					<div class='productPrice text-center'>
+					<br>
+					<div class='noProduct text-center'>
 						<p>Нет в наличии</p>
 					</div>
 				{{/lte}}	
@@ -46,11 +47,13 @@
 </div>
 <div class='row'>
 <p style='padding-left: 40px;'>код товара: {{product.code}}</p>
-<p style='padding: 40px; width: 100%; overflow: hidden;'>
 {{#if product.videoURL}}
+{{#startsWith 'https://' product.videoURL}}
+<p style='padding: 20px 10px 20px 40px; width: 100%; overflow: hidden;'>
 <iframe width="300" height="176" src="{{product.videoURL}}" frameborder="0" allowfullscreen></iframe>
-{{/if}}
 </p>
-<p style='padding-left: 40px; text-indent: 1.05em;'>{{product.description}}</p>
+{{/startsWith}}
+{{/if}}
+<p style='padding: 20px 10px 0 40px; text-indent: 1.05em;'>{{product.description}}</p>
 </div>
 <script src='/scripts/productpage.js'></script>

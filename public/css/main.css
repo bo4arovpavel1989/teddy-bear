@@ -132,7 +132,7 @@ p {
 }
 
 .navbar {
-	   
+    border-radius: 0 2px;   
 }
 
 .nav-tabs>li>a {
@@ -237,6 +237,11 @@ p {
 	padding: 0;
 }
 
+.noProduct{
+	font-size: 14pt;
+	margin-bottom: 42px;
+}
+
 .productPlace {
 	margin: 10px 0 10px 3px;
 	padding: 0 0 0 0;
@@ -245,7 +250,7 @@ p {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 10pt;
-	~border-radius: 1px 1px 10px 10px;
+	border-radius: 0 5px;   
 }
 
 @media screen and (min-width: 768px) {
