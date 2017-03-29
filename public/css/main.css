@@ -243,7 +243,7 @@ p {
 }
 
 .productPlace {
-	margin: 10px 0 10px 3px;
+	margin: 1px 0 2px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
 	background-color: white;
@@ -251,7 +251,9 @@ p {
 	text-overflow: ellipsis;
 	font-size: 10pt;
 	border-radius: 0 5px;   
+	border: 1px solid #f5f5f5;
 }
+
 
 @media screen and (min-width: 768px) {
 	 .productPlace {
@@ -273,8 +275,7 @@ p {
 
 
 .productPlace:hover {
-    background: #f0f0f0; /* Цвет фона */
-    
+    border: 1px solid #d31558;
    }
 .productName {
 	overflow: hidden;
