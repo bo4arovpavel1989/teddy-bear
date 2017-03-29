@@ -182,6 +182,11 @@ p {
 	z-index: 1;
 }
 
+.searchProduct, .searchSubmit{
+	border-radius: 0;
+}
+
+
 #searchArea {
 	margin-bottom: 20px;
 }
