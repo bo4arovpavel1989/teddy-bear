@@ -58,6 +58,7 @@ p {
 }
 .nav {
 }
+
 #brand  p{
 	font-size: 18pt;
 	margin: 0 0 0 0;
@@ -138,6 +139,13 @@ p {
 .nav-tabs>li>a {
 	border: 0;
 }
+
+.nav-tabs>li>a:hover {
+	color: #eec8d6 !important;
+}
+
+
+
 .navbar-collapse {
 	
 }
@@ -172,11 +180,6 @@ p {
 	left: -30px; 
 	position: relative;
 }
-
-.circle:hover{
-	opacity: 0.2;
-}
-
 
 .sidebar {
 	z-index: 1;
@@ -223,6 +226,7 @@ p {
 	padding-left: 0 !important;
 	border-bottom: 1px solid black;
 }
+
 
 .categoryChoose.active {
 	border-bottom: 1px solid #d31558;
