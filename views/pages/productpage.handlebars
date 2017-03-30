@@ -56,13 +56,18 @@
 {{/if}}
 <p style='padding: 20px 10px 20px 40px; text-indent: 1.05em;'>{{product.description}}</p>
 </div>
-<div class='reviewSection' style='padding: 20px 10px 20px 40px;'>
+<div style='padding: 20px 10px 20px 40px;'><a href='#' class='showReviewSection' data-product='{{product.address}}' style='color: black; font-size: 20pt;'> Отзывы &ensp;&ensp;<span class="glyphicon glyphicon-menu-down"></span></a></div>
+<div class='reviewSection' style='padding: 20px 10px 20px 40px;display: none;'>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<p style='padding: 20px 10px 20px 40px;'>Отзывы</p>
 <form id="reviewForm" action="/postreview" method="post">
 	<div class="form-group">
 		<div class="input-group hidden">
-			<input type="text" class="form-control" id="inputName" name='address' placeholder="Ваше имя" value='{{product.address}}'required>
+			<input type="text" class="form-control" id="inputName" name='address' value='{{product.address}}'required>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="input-group hidden">
+			<input type="text" class="form-control" id="inputName" name='type' value='productReview'required>
 		</div>
 	</div>
     <div class="form-group callbackFormGroup">
@@ -90,7 +95,8 @@
 		<input class="btn btn-callback" type="submit" value="Отправить"></input>
  </div>
 </form>
-<div class='reviewList'>
+<div class='reviewList' style='padding: 20px 10px 20px 40px;'>
 </div>
+<a class='btn btn-default moreReviews' href='#'>Дальше</a>
 </div>
 <script src='/scripts/productpage.js'></script>
