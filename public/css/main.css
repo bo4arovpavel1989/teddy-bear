@@ -252,6 +252,7 @@ p {
 }
 
 .productPlace {
+	max-height: 345px;
 	margin: 1px 0 2px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
