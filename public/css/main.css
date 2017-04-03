@@ -307,7 +307,7 @@ p {
 	color: red;
 }
 
-.btn-toCartButton {
+.btn-toCartButton, .btn-toCartButton:focus {
 	color: white;
 	background-color: #d31558;
 	~background: linear-gradient(to bottom right, #62DA00, #32A900);
@@ -318,6 +318,16 @@ p {
 	margin-bottom: 10px;
 	border-radius: 0;
 	~border-radius: 1px 1px 10px 10px;
+}
+
+.goToCart, .goToCart:focus {
+	color: white;
+	background-color: #d31558;
+	width: 60%;
+	padding: 1px;
+	margin-top:  10px;
+	margin-bottom: 10px;
+	border-radius: 0;
 }
 
 .commandLink {

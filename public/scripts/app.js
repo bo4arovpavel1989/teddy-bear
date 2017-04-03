@@ -144,7 +144,11 @@ function addToCart(){
 		setCookie('cart', productId, {expires: 3600 * 24, path: '/'});
 		checkCart();
 		var target='#' + target;
-		console.log(target);
+		$(this).removeClass('btn-toCartButton');
+		$(this).unbind('click');
+		$(this).addClass('goToCart');
+		goToCart();
+		$(this).html('Оформить заказ');
 		$(target)  
               .clone()  
               .css({'position' : 'absolute', 'z-index' : '999', top: $(this).offset().top-300, left:$(this).offset().left-100})  
@@ -158,6 +162,14 @@ function addToCart(){
         });  
 	});
 }
+
+function goToCart(){
+	$('.goToCart').on('click', function(){
+	var cartArray = getCookie('cart');
+	if (cartArray !== undefined) location.assign('/cart');	
+	});
+}
+
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
