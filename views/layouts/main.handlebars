@@ -20,9 +20,9 @@
 	<div class='row'>
 		<div class='col-md-4 text-center hidden-sm hidden-xs'>
 			<div class='text-left' id='brand'>
-			<p>Интернет-магазин</p>
-			<p>оригинальных мишек</p>
-			<p style='color: #d31558;'>"Me To You"</p>
+			<p><a href="/" style='color: black; text-decoration: none;'>Интернет-магазин</a></p>
+			<p><a href="/" style='color: black; text-decoration: none;'>оригинальных мишек</a></p>
+			<p style='color: #d31558;'><a href="/" style='color: #d31558; text-decoration: none;'>"Me To You"</a></p>
 			</div>	
 		</div>
 		<div class='col-md-4 text-center logo'>
@@ -65,7 +65,7 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 <div class='row banners'>
-	<div class='col-md-4'>
+	<div class='col-md-4 hidden-sm hidden-xs'>
 		<p style='font-size: 16pt; margin-bottom: 25px;'>Гарантия качества<img class='circle' src="/images/page/circle.png" width="50" height="50"/></p>
 		<p>Только оригинальная</p>
 		<p>качественная продукция</p>
@@ -76,14 +76,14 @@
 		<div>
 			{{#if specialProp.describe}}
 			<p style='font-size: 16pt; margin-bottom: 25px;'>Спец. предложение <img class='circle' src="/images/page/circle.png" width="50" height="50" /></p>
-			<p>{{specialProp.describe}}</p>
-			<div class='text-center' style='margin-top: 25px;'>
+			<p>{{{specialProp.describe}}}</p>
+			<div class='text-center'>
 			<a href='{{specialProp.link}}' style='color: #d31558; text-decoration: underline;'>Купить</a>
 			</div>
 			{{/if}}
 		</div>
 	</div>
-	<div class='col-md-4'>
+	<div class='col-md-4 hidden-sm hidden-xs'>
 		<p style='font-size: 16pt; margin-bottom: 25px;'>Доставка <img class='circle' src="/images/page/circle.png" width="50" height="50"/></p>
 		<p>Работаем по всей России.</p>
 		<p>По Санкт-петербургу доставка</p>
@@ -92,7 +92,7 @@
 	</div>
 </div>
 <div class='row'>
-	<div class='col-md-3 col-sm-3 sidebar'>
+	<div class='col-md-4 col-sm-4 sidebar'>
 		<div id='searchArea'>
 		 <div class="input-group">
 			<input type="text" class="form-control searchProduct" placeholder="Поиск товара">
@@ -121,7 +121,7 @@
 			</ul>
 		</div>
     </div>
-	<div class='col-md-9 productsSpace'>
+	<div class='col-md-8 productsSpace'>
 		{{{body}}}
     </div>
 </div>

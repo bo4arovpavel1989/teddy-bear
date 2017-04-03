@@ -58,6 +58,7 @@ p {
 }
 .nav {
 }
+
 #brand  p{
 	font-size: 18pt;
 	margin: 0 0 0 0;
@@ -91,6 +92,8 @@ p {
 	height: 120px;
 }
 .callback  {
+	position: relative;
+	top: 10px;
 	margin: 0 0 0 0;
 	float: right;
 	padding-right: 10px;
@@ -130,12 +133,19 @@ p {
 }
 
 .navbar {
-	   
+    border-radius: 0 2px;   
 }
 
 .nav-tabs>li>a {
 	border: 0;
 }
+
+.nav-tabs>li>a:hover {
+	color: #eec8d6 !important;
+}
+
+
+
 .navbar-collapse {
 	
 }
@@ -171,14 +181,14 @@ p {
 	position: relative;
 }
 
-.circle:hover{
-	opacity: 0.2;
-}
-
-
 .sidebar {
 	z-index: 1;
 }
+
+.searchProduct, .searchSubmit{
+	border-radius: 0;
+}
+
 
 #searchArea {
 	margin-bottom: 20px;
@@ -217,6 +227,7 @@ p {
 	border-bottom: 1px solid black;
 }
 
+
 .categoryChoose.active {
 	border-bottom: 1px solid #d31558;
 }
@@ -232,25 +243,49 @@ p {
 
 
 .productsSpace {
-	
+	padding: 0;
+}
+
+.noProduct{
+	font-size: 14pt;
+	margin-bottom: 42px;
 }
 
 .productPlace {
-	margin: 10px 5% 10px 10px;
+	max-height: 345px;
+	margin: 1px 0 2px 3px;
 	padding: 0 0 0 0;
 	overflow: hidden;
 	background-color: white;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 10pt;
-	border-radius: 1px 1px 10px 10px;
-    border-left: 3px solid rgb(212, 212, 212);
-    border-right: 3px solid rgb(212, 212, 212);
+	border-radius: 0 5px;   
+	border: 1px solid #f5f5f5;
 }
 
+
+@media screen and (min-width: 768px) {
+	 .productPlace {
+		max-width: 256px;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	 .productPlace {
+		max-width: 212px !important;	
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	 .productPlace {
+		max-width: 256px;
+	}
+}
+
+
 .productPlace:hover {
-    background: #f0f0f0; /* Цвет фона */
-    
+    border: 1px solid #d31558;
    }
 .productName {
 	overflow: hidden;
@@ -264,7 +299,6 @@ p {
 }
 .productPrice {
 	font-size: 13pt;
-	background-color: #F2FCF6;
 }
 
 .discountOldPrice {
@@ -273,12 +307,27 @@ p {
 	color: red;
 }
 
-.btn-toCartButton {
+.btn-toCartButton, .btn-toCartButton:focus {
 	color: white;
-	background: linear-gradient(to bottom right, #62DA00, #32A900);
-	background: -moz-linear-gradient(center top , #62DA00, #32A900) repeat scroll 0% 0% transparent;
-	width: 100%;
-	border-radius: 1px 1px 10px 10px;
+	background-color: #d31558;
+	~background: linear-gradient(to bottom right, #62DA00, #32A900);
+	~background: -moz-linear-gradient(center top , #62DA00, #32A900) repeat scroll 0% 0% transparent;
+	width: 60%;
+	padding: 1px;
+	margin-top:  10px;
+	margin-bottom: 10px;
+	border-radius: 0;
+	~border-radius: 1px 1px 10px 10px;
+}
+
+.goToCart, .goToCart:focus {
+	color: white;
+	background-color: #d31558;
+	width: 60%;
+	padding: 1px;
+	margin-top:  10px;
+	margin-bottom: 10px;
+	border-radius: 0;
 }
 
 .commandLink {
@@ -343,6 +392,10 @@ p {
 
 tr {
 	margin-top: 20px;
+}
+
+.text {
+	padding: 20px;
 }
 
 .text > p {

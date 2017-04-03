@@ -6,6 +6,7 @@ $(document).ready(function(){
 	cartTitle.scrollIntoView(true);
 	switchCartSection();
 	clearCart();
+	 triggerSelectPunktLink();
 });
 
 function openPrevSection(button){
@@ -121,6 +122,12 @@ function showHideAddressField(id){
 		$('#customerAddress').next().next().removeClass('hidden'); /*showing br-tags*/
 		$('#customerAddress').required = true;
 	}
+}
+
+function triggerSelectPunktLink(){
+	$('#pickup').on('click', function(){
+		$('#selectPunkt').trigger('click');
+	});
 }
 
 function clearCart(){

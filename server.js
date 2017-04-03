@@ -12,11 +12,12 @@ var login = secret.login;
 var loginUpperCase = login.toUpperCase();
 var passwd = secret.passwd;
 //var administrator = new Admin({login: login, loginUpperCase: loginUpperCase, passwd: passwd, session: '0'}).save();
-
+//Admin.update({login: 'admin'}, {$set: {newOrders: 0, newCalls: 0}}).exec();
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars');
+var helpers = require('handlebars-helpers')();
 var server = require('http').createServer();
 
 var app = express();

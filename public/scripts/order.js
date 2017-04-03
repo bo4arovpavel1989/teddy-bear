@@ -7,6 +7,7 @@ $(document).ready(function(){
 	backToOrders();
 	searchClient();
 	searchOrderByDate();
+
 });
 
 function getOrders(){
@@ -18,6 +19,10 @@ function getOrders(){
 			$('#orderList').append(data);
 			showInfo();
 			orderToWork();
+			showCommentForm();
+			managerCommentSubmit();
+			showFedexPriceForm();
+			fedexPriceSubmit();
 			doneOrder();
 			deleteOrder();
 			$('#moreOrders').addClass('hidden');
@@ -243,5 +248,61 @@ function searchOrderByDate() {
 						showInfo();
 				}
 		});
+	});
+}
+
+function showCommentForm(){
+	$('.makeComment').on('click', function(e){
+		e.preventDefault();
+		$(this).parent().next().next().toggleClass('hidden');
+	});
+	
+}
+
+function managerCommentSubmit(){
+	$('.managerCommentForm').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						getOrders();
+				}
+		});
+		
+		
+	});
+}
+
+function showFedexPriceForm(){
+	$('.setFedexPrice').on('click', function(e){
+		e.preventDefault();
+		$(this).parent().next().next().next().toggleClass('hidden');
+	});
+	
+}
+
+function fedexPriceSubmit(){
+	$('.fedexPriceForm').on('submit', function(e){
+		e.preventDefault();
+		var $that = $(this);
+		var formData = new FormData($that.get(0));
+		$.ajax({
+				url: $that.attr('action'),
+				type: $that.attr('method'),
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function(){
+						getOrders();
+				}
+		});
+		
+		
 	});
 }

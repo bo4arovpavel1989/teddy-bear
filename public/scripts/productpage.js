@@ -1,3 +1,5 @@
+var page = 0;
+var product;
 $(document).ready(function(){
 	if(loggedIn) {
 		$('.deleteImage').each(function(){
@@ -6,6 +8,8 @@ $(document).ready(function(){
 		deleteImage();
 	}
 	goBack();
+	showReviewSection();
+	moreReviews();
 });
 function goBack(){
 	$('.goBack').on('click', function(e){
@@ -30,5 +34,42 @@ function deleteImage(){
 				location.reload();
 			}
 		});
+	});
+}
+
+function showReviewSection(){
+	$('.showReviewSection').on('click', function(e){
+		e.preventDefault();
+		var that = $(this);
+		$('.reviewSection').toggle(400, function(){
+			if ($('.reviewSection').is(':visible')) {
+				page = 0;
+				product = that.data('product');
+				console.log(product);
+				getReviews();
+				$('.showReviewSection').addClass('active');
+			}	else {
+					$('.reviewList').empty();
+					$('.showReviewSection').removeClass('active');
+				}	
+		}); 
+			
+	});
+}
+
+function getReviews(){
+	$.ajax({
+		url: '/getproductreview?product=' + product + '&page=' + page,
+		success: function(data){
+			$('.reviewList').append(data);
+			page += 10;
+		}
+	});
+}
+
+function moreReviews(){
+	$('.moreReviews').on('click', function(e){
+		e.preventDefault();
+		getReviews();
 	});
 }

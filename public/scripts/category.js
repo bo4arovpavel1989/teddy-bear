@@ -80,7 +80,8 @@ function deleteCategory() {
 }
 
 function changeCategory() {
-	$('.changeCategory').on('click', function(){
+	$('.changeCategory').on('click', function(e){
+		e.preventDefault();
 		var category = $(this).data('id');
 		var oldName = $(this).data('name');
 		$.ajax({
@@ -137,7 +138,8 @@ function deleteSubCategory() {
 }
 
 function changeSubCategory() {
-	$('.changeSubCategory').on('click', function(){
+	$('.changeSubCategory').on('click', function(e){
+		e.preventDefault();
 		var subcategory = $(this).data('id');
 		var oldName = $(this).data('name');
 		var parentCategory = $(this).data('parentid');
