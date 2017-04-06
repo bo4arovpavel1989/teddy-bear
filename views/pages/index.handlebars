@@ -14,7 +14,8 @@
 				{{#gt quantity 0}}
 					{{#unless isSpecialProp}}
 					<div class='productPrice text-center'>
-						<p>{{price}},00 руб.</p>
+						{{#gt fakeOldPrice 0}}<div class='discountOldPrice'>{{fakeOldPrice}},00 </div>{{/gt}}
+						{{price}},00 руб.
 					</div><br>
 					{{else}}
 					<div class='productPrice text-center'>
