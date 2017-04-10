@@ -299,6 +299,7 @@ p {
     border: 1px solid #d31558;
    }
 .productName {
+	padding: 0 10px 0 10px;
 	overflow: hidden;
 	background-color: white;
 	white-space: nowrap;
