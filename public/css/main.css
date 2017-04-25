@@ -214,7 +214,9 @@ p {
 	color: black;
 }
 
-
+.showCategories:focus, .showCategories:hover{
+	text-decoration:none;
+}
 
 .active {
 	color: #d31558 !important;
@@ -265,9 +267,18 @@ p {
 }
 
 
+@media screen and (max-width: 767px) {
+	.categoriesList{
+		display: none;
+	}
+}
+
 @media screen and (min-width: 768px) {
 	 .productPlace {
 		max-width: 256px;
+	}
+	.showCategoriesField{
+		display: none;
 	}
 }
 
@@ -288,6 +299,7 @@ p {
     border: 1px solid #d31558;
    }
 .productName {
+	padding: 0 10px 0 10px;
 	overflow: hidden;
 	background-color: white;
 	white-space: nowrap;
@@ -359,6 +371,7 @@ p {
 	left: -20px;
 	top: -30px;
 	margin: 0;
+	z-index:999;
 }
 
 .productHowMany {

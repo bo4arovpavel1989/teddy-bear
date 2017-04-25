@@ -11,6 +11,7 @@ $(document).ready(function(){
 	addToCart();
 	checkCart();
 	forEachForIe();
+	showCategories();
 });
 
 function checkCart() {
@@ -170,6 +171,13 @@ function goToCart(){
 	});
 }
 
+function showCategories(){
+	$('.showCategories').on('click', function(e){
+		e.preventDefault();
+		$('.categoriesList').toggle(400);
+		$(this).toggleClass('active');
+	});
+}
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(

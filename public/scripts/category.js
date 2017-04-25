@@ -84,12 +84,14 @@ function changeCategory() {
 		e.preventDefault();
 		var category = $(this).data('id');
 		var oldName = $(this).data('name');
+		var rank = $(this).data('rank');
 		$.ajax({
 			url: "../view/forms/changecategoryform.html",
 			success: function(html) {
 				$('#changeCategoryFormPlace').empty();
 				$('#changeCategoryFormPlace').append(html);
 				$('#inpuCategoryId').val(category);
+				$('#inputRate').val(rank);
 				$('#inputNewCategory').val(oldName).focus();
 				changeCategorySubmit();
 				return false;
