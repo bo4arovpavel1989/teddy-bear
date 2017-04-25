@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /login
+Disallow: /admin
+Disallow: /cart
+
+host: zakaz-teddy.ru
