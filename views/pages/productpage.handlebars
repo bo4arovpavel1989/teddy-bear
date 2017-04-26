@@ -1,8 +1,10 @@
 <div class='productTitleLinks'>
+{{#unless notFound}}
 <a href='#' class='goBack' style='color: grey;'>вернуться назад |</a>
 <a href='/category/{{product.category.id}}' style='color: grey;'>{{product.category.name}} /</a>
 <a href='/subcategory/{{product.category.id}}/{{product.subcategory.id}}' style='color: grey;'>{{product.subcategory.name}}</a>
 </div>
+
 <div class='row'>
 {{#if product.gallery}}
 <div class="col-md-1 hidden-sm hidden-xs">
@@ -102,4 +104,10 @@
 </div>
 <a class='btn btn-default moreReviews' href='#'>Дальше</a>
 </div>
+{{else}}
+<div class='text-center'>
+	<p>К сожаленью, запрашиваемый товар не найден!</p>
+	<a href='/' class='active'>Вернуться в магазин</a>
+</div>
+{{/unless}}
 <script src='/scripts/productpage.js'></script>
