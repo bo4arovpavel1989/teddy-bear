@@ -8,7 +8,7 @@
 <div class="col-md-1 hidden-sm hidden-xs">
 {{#each product.gallery}}
 <a data-fancybox="gallery" href="{{image}}" style='width: 59px !important; height: 59px !important;'>
-	<img src='{{thumb_image}}' class='galleryItem' style='width: 59px; height: 59px;'>
+	<img src='{{thumb_image}}' alt='Фото товара' class='galleryItem' style='width: 59px; height: 59px;'>
 </a>
 <a href='#' class='deleteImage redLink hidden' data-id='{{../product._id}}' data-image='{{image}}' data-image_thumb='{{thumb_image}}'>
 	<span class='glyphicon glyphicon-trash'/>
@@ -18,7 +18,7 @@
 {{/if}}
 <div class="col-md-5 text-center">
 <a data-fancybox="gallery" href="{{product.image}}">
-    <img src="{{product.image}}" id='{{product.address}}' style='max-width: 300px; height: 300px;'>
+    <img src="{{product.image}}" alt='Фото товара' id='{{product.address}}' style='max-width: 300px; height: 300px;'>
 </a>
 </div>
 <div class="col-md-6">
