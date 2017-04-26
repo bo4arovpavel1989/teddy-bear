@@ -14,6 +14,9 @@ function getCategoryFilter(){
 		success: function(html){
 			$('#categoryFilterPlace').append(html);
 			useCategoryFilter();
+			uncheckAll();
+			checkAll();
+			showHits();
 		}
 	});
 }
@@ -31,6 +34,34 @@ function useCategoryFilter() {
 			}
 		});
 		filter += '&counter=' + counter;
+		getProductsList();
+	});
+}
+
+function uncheckAll(){
+	$('.uncheckAll').on('click', function(e){
+		e.preventDefault();
+		var checkBoxes = document.getElementsByName('categoryFilter');
+		checkBoxes.forEach(function(checkBox){
+			checkBox.checked = false;
+		});
+	});
+}
+
+function checkAll(){
+	$('.checkAll').on('click', function(e){
+		e.preventDefault();
+		var checkBoxes = document.getElementsByName('categoryFilter');
+		checkBoxes.forEach(function(checkBox){
+			checkBox.checked = true;
+		});
+	});
+}
+
+function showHits(){
+	$('.showHits').on('click', function(e){
+		e.preventDefault();
+		filter='';
 		getProductsList();
 	});
 }
