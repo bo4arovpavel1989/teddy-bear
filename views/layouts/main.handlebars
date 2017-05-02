@@ -5,14 +5,18 @@
 		<title>{{title.name}}</title>
 	{{else}}
 		{{#unless product.name}}
-		<title>Zakaz-teddy. Интернет-магазин оригинальных брендовых мягких игрушек.</title>
+			<title>Zakaz-teddy. Интернет-магазин оригинальных брендовых мягких игрушек.</title>
 		{{else}}
-		<title>{{product.name}}</title>
+			<title>{{product.name}}</title>
 		{{/unless}}
 	{{/if}}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="description" content="Интернет-магазин оригинальных брендовых мишек Тедди (Teddy) Me To You фирмы Carte Blanche. Плюшевые мишки, мягкие игрушки, подарки">
+	{{#unless product.description}}
+		<meta name="description" content="Интернет-магазин оригинальных брендовых мишек Тедди (Teddy) Me To You фирмы Carte Blanche. Плюшевые мишки, мягкие игрушки, подарки">
+	{{else}}
+		<meta name="description" content="{{product.description}}">
+	{{/unless}}
 	<meta name="keywords" content="мишка Тедди Me To You, Teddy, Taddy, Tatty, МиТуЮ, Me To You, Carte Blanche, плюшевые мишки тедди, оригинальные мишки тедди, подарки, мягкие игрушки, сувениры купить спб">
 	<meta name="yandex-verification" content="f8f47fd8aeb5f1ed" />
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
