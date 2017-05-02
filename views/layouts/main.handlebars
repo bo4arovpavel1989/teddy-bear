@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Zakaz-teddy. Интернет-магазин оригинальных брендовых мягких игрушек.</title>
+	{{#if title.name}}
+		<title>{{title.name}}</title>
+	{{else}}
+		{{#unless product.name}}
+		<title>Zakaz-teddy. Интернет-магазин оригинальных брендовых мягких игрушек.</title>
+		{{else}}
+		<title>{{product.name}}</title>
+		{{/unless}}
+	{{/if}}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="description" content="Интернет-магазин оригинальных брендовых мишек Тедди (Teddy) Me To You фирмы Carte Blanche. Плюшевые мишки, мягкие игрушки, подарки">
