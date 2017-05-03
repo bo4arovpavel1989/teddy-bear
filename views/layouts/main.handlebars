@@ -2,7 +2,11 @@
 <html>
 <head>
 	{{#if title.name}}
+		{{#if title.subcatname}}
+			<title>{{title.name}} - {{title.subcatname}}</title>
+		{{/else}}	
 		<title>{{title.name}}</title>
+		{{/if}}	
 	{{else}}
 		{{#unless product.name}}
 			<title>Zakaz-teddy. Интернет-магазин оригинальных брендовых мягких игрушек.</title>
