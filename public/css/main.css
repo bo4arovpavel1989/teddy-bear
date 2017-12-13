@@ -415,3 +415,12 @@ tr {
 	text-indent: 1.5em; 
     text-align: justify; 
 }
+
+.lookAtMe{
+	-webkit-box-shadow: 1px 7px 32px 13px #d31558;
+	-moz-box-shadow: 1px 7px 32px 13px #d31558;
+	box-shadow: 1px 7px 32px 13px #d31558;
+	transition:0.3s ease-in-out;
+}
+
+
