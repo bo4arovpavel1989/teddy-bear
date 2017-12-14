@@ -26,10 +26,6 @@
 		var cbButton = document.getElementById("phoneNumber");
 		cbButton.scrollIntoView(true);
 			$('.orderCallback').addClass('lookAtMe');
-			setTimeout(function(){$('.orderCallback').removeClass('lookAtMe')},1000);
-		for (var blink =0; blink<4; blink++) {
-			$('.orderCallback').animate({opacity: 0.5}, 600);
-			$('.orderCallback').animate({opacity: 1}, 600);
-		}
+			setTimeout(function(){$('.orderCallback').removeClass('lookAtMe')},3600);
 	}
 </script>
